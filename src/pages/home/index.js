@@ -32,8 +32,9 @@ const HomePage = () => {
 		>
 			<ExplainCard />
 			<VRTour />
-			<TutorialCard />
 			<InfoCard />
+			<TutorialCard />
+
 			<div
 				style={{
 					display: 'flex',

@@ -5,6 +5,7 @@ import TutorialCard from './cards/card-tutorial';
 import ExplainCard from './cards/card-explain';
 import VRTour from './cards/card-vr';
 import Footer from './footer';
+import GedungCard from './cards/card-gedung';
 
 export {
 	Header,
@@ -14,4 +15,5 @@ export {
 	ExplainCard,
 	VRTour,
 	Footer,
+	GedungCard,
 };

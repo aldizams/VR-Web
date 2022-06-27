@@ -1,6 +1,7 @@
 import React from 'react';
 import { Card, Button } from 'react-bootstrap';
 import btnBg from '../../../assets/img/bg-upce.png';
+import { Link } from 'react-router-dom';
 
 const AreaCard = (props) => {
 	return (
@@ -37,6 +38,10 @@ const AreaCard = (props) => {
 						border: 'none',
 						borderRadius: '20px',
 					}}
+					as={Link}
+					to={`/Area/${props.name}`}
+					key={props.id}
+					name={props.name}
 				>
 					{props.name}
 				</Button>
