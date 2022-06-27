@@ -6,6 +6,7 @@ import {
 	InfoCard,
 	TutorialCard,
 	ExplainCard,
+	VRTour,
 } from '../../components';
 
 const Home = () => {
@@ -20,31 +21,31 @@ const Home = () => {
 		fetchApi();
 	}, []);
 	return (
-		<Container fluid="sm">
+		<Container
+			fluid="sm"
+			style={{
+				display: 'flex',
+				justifyContent: 'center',
+				alignItems: 'center',
+				flexWrap: 'wrap',
+			}}
+		>
 			<ExplainCard />
-			<div>
-				<h1>NANTI DISINI ADA VIRTUAL TOURNYA</h1>
-			</div>
-			<div></div>
-			{area.map((item) => (
-				<div
-					key={item.id}
-					style={{
-						display: 'flex',
-						flexWrap: 'wrap',
-						justifyContent: 'center',
-					}}
-				>
-					<div>
-						<img src={item.image} style={{ width: '18rem' }}></img>
-						<h3>{item.namaGedung}</h3>
-					</div>
-				</div>
-			))}
-			{/*nyari cara supaya mappingnya bisa masuk kedalam component card*/}
-			<AreaCard />
+			<VRTour />
 			<InfoCard />
-			<TutorialCard />
+			<div
+				style={{
+					display: 'flex',
+					flexWrap: 'wrap',
+					justifyContent: 'space-around',
+					alignItems: 'center',
+				}}
+			>
+				{area.map((item) => (
+					<AreaCard key={item.id} bg={item.image} name={item.namaGedung} />
+				))}
+			</div>
+			{/*nyari cara supaya mappingnya bisa masuk kedalam component card*/}
 		</Container>
 	);
 };

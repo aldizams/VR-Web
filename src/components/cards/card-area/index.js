@@ -1,19 +1,28 @@
 import React from 'react';
 import { Card, Button } from 'react-bootstrap';
-import bg from '../../../assets/img/gedung/IMG_4296.JPG';
 import btnBg from '../../../assets/img/bg-upce.png';
 
-const AreaCard = (image) => {
+const AreaCard = (props) => {
 	return (
-		<Card style={{ width: '30rem', height: '12rem', border: '5px' }}>
+		<Card
+			style={{
+				width: '39rem',
+				height: '19rem',
+				border: '5px',
+				margin: '25px 0 25px 0',
+			}}
+		>
 			<Card.Body
 				style={{
-					backgroundImage: `url(${bg})`,
+					backgroundImage: `url("${props.bg}")`,
 					backgroundRepeat: 'no-repeat',
 					backgroundPosition: 'center',
 					backgroundSize: 'cover',
 					borderRadius: '20px',
 					border: '3px solid #084999',
+					display: 'flex',
+					justifyContent: 'center',
+					alignItems: 'flex-end',
 				}}
 			>
 				<Button
@@ -28,7 +37,7 @@ const AreaCard = (image) => {
 						borderRadius: '20px',
 					}}
 				>
-					Gedung Rektorat
+					{props.name}
 				</Button>
 			</Card.Body>
 		</Card>

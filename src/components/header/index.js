@@ -24,8 +24,8 @@ const Header = () => {
 			style={{ backgroundColor: '#135CB2' }}
 		>
 			{/* Masi nyari cara biar tulisannya ditengah dan berjarak pakai display flex*/}
+			<img src={logo} alt="logo" style={{ width: '15%', height: '' }} />
 			<Container fluid>
-				<img src={logo} alt="logo" style={{ width: '20%' }} />
 				<Navbar.Toggle aria-controls="responsive-navbar-nav" />
 				<Navbar.Collapse id="responsive-navbar-nav">
 					<Nav className="me-auto">
