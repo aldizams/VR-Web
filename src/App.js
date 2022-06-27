@@ -1,14 +1,17 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import { Routes, Route, Link } from 'react-router-dom';
 import { Header, Footer } from './components';
-import { Home } from './pages';
+import { AreaPage, HomePage } from './pages';
 
 function App() {
 	return (
 		<div className="App">
 			<Header />
-			<Home />
+			<Routes>
+				<Route path="/" element={<HomePage />} />
+				<Route path="/Area/:namaGedung" element={<AreaPage />} />
+			</Routes>
 			<Footer />
 		</div>
 	);

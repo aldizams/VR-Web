@@ -9,7 +9,7 @@ import {
 	VRTour,
 } from '../../components';
 
-const Home = () => {
+const HomePage = () => {
 	const [area, setArea] = useState([]);
 
 	const fetchApi = async () => {
@@ -32,6 +32,7 @@ const Home = () => {
 		>
 			<ExplainCard />
 			<VRTour />
+			<TutorialCard />
 			<InfoCard />
 			<div
 				style={{
@@ -45,9 +46,23 @@ const Home = () => {
 					<AreaCard key={item.id} bg={item.image} name={item.namaGedung} />
 				))}
 			</div>
+
+			<hr
+				style={{
+					width: '50%',
+					textAlign: 'center',
+					marginLeft: '0',
+					height: '3px',
+					color: '#084999',
+					backgroundColor: '#084999',
+					borderWidth: '0',
+					display: 'block',
+				}}
+			/>
+
 			{/*nyari cara supaya mappingnya bisa masuk kedalam component card*/}
 		</Container>
 	);
 };
 
-export default Home;
+export default HomePage;

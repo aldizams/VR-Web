@@ -23,6 +23,7 @@ const AreaCard = (props) => {
 					display: 'flex',
 					justifyContent: 'center',
 					alignItems: 'flex-end',
+					boxShadow: '8px 8px 16px -2px rgba(0,0,0,0.34)',
 				}}
 			>
 				<Button

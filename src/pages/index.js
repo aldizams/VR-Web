@@ -1,3 +1,4 @@
-import Home from './home';
+import HomePage from './home';
+import AreaPage from './location';
 
-export { Home };
+export { HomePage, AreaPage };
