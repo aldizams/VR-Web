@@ -27,11 +27,14 @@ const Header = () => {
 			<img
 				src={logo}
 				alt="logo"
-				style={{ position: 'absolute', width: '15%', height: '5em' }}
+				style={{ position: 'absolute', width: '20em', height: '5em' }}
 			/>
-			<Container fluid style={{ position: 'absolute', left: '15rem' }}>
+			<Container fluid>
 				<Navbar.Toggle aria-controls="responsive-navbar-nav" />
-				<Navbar.Collapse id="responsive-navbar-nav">
+				<Navbar.Collapse
+					id="responsive-navbar-nav"
+					style={{ position: 'absolute', left: '15rem' }}
+				>
 					<Nav className="me-auto">
 						<Nav.Link as={Link} to="/">
 							Home
