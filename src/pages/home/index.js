@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Card } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
 import axios from 'axios';
 import {
 	AreaCard,
@@ -44,7 +44,12 @@ const HomePage = () => {
 				}}
 			>
 				{area.map((item) => (
-					<AreaCard key={item.id} bg={item.image} name={item.namaGedung} />
+					<AreaCard
+						key={item.id}
+						bg={item.image}
+						name={item.namaGedung}
+						id={item.id}
+					/>
 				))}
 			</div>
 

@@ -39,9 +39,9 @@ const AreaCard = (props) => {
 						borderRadius: '20px',
 					}}
 					as={Link}
-					to={`/Area/${props.name}`}
+					to={`/Area/${props.name}/${props.id}`}
 					key={props.id}
-					name={props.name}
+					params={props}
 				>
 					{props.name}
 				</Button>

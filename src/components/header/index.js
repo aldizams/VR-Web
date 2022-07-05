@@ -16,18 +16,20 @@ const Header = () => {
 		fetchApi();
 	}, []);
 
-	console.log(area);
 	return (
 		<Navbar
 			collapseOnSelect
 			expand="lg"
 			variant="dark"
-			style={{ backgroundColor: '#135CB2' }}
+			style={{ backgroundColor: '#135CB2', height: '5em' }}
 		>
 			{/* Masi nyari cara biar tulisannya ditengah dan berjarak pakai display flex*/}
-
-			<Container fluid>
-				<img src={logo} alt="logo" style={{ width: '15%', height: '' }} />
+			<img
+				src={logo}
+				alt="logo"
+				style={{ position: 'absolute', width: '15%', height: '5em' }}
+			/>
+			<Container fluid style={{ position: 'absolute', left: '15rem' }}>
 				<Navbar.Toggle aria-controls="responsive-navbar-nav" />
 				<Navbar.Collapse id="responsive-navbar-nav">
 					<Nav className="me-auto">
@@ -40,7 +42,9 @@ const Header = () => {
 								<NavDropdown.Item
 									key={item.id}
 									as={Link}
-									to={`/Area/${item.namaGedung}`}
+									to={`/Area/${item.namaGedung}/${item.id}`}
+									name={item.namaGedung}
+									params={item}
 								>
 									{item.namaGedung}
 								</NavDropdown.Item>
