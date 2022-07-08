@@ -21,24 +21,25 @@ const Header = () => {
 			collapseOnSelect
 			expand="lg"
 			variant="dark"
-			style={{ backgroundColor: '#135CB2', height: '5em' }}
+			style={{ backgroundColor: '#135CB2', height: '6em' }}
 		>
 			{/* Masi nyari cara biar tulisannya ditengah dan berjarak pakai display flex*/}
 			<img
 				src={logo}
 				alt="logo"
-				style={{ position: 'absolute', width: '20em', height: '5em' }}
+				style={{ position: 'relative', width: '21em', height: '6em' }}
 			/>
 			<Container fluid>
 				<Navbar.Toggle aria-controls="responsive-navbar-nav" />
 				<Navbar.Collapse
 					id="responsive-navbar-nav"
-					style={{ position: 'absolute', left: '15rem' }}
+					style={{ position: 'relative' }}
 				>
 					<Nav className="me-auto">
 						<Nav.Link as={Link} to="/">
 							Home
 						</Nav.Link>
+
 						<NavDropdown title="Area" id="collasible-nav-dropdown">
 							{/* nanti disini bakal map area nama area dari axios*/}
 							{area.map((item) => (
@@ -49,7 +50,7 @@ const Header = () => {
 									name={item.namaGedung}
 									params={item}
 								>
-									{item.namaGedung}
+									<p>{item.namaGedung}</p>
 								</NavDropdown.Item>
 							))}
 						</NavDropdown>

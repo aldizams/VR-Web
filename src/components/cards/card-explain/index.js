@@ -13,18 +13,23 @@ const ExplainCard = () => {
 				margin: '40px',
 			}}
 		>
-			<h1 style={{ marginRight: '90px', textAlign: 'left', color: '#084999' }}>
+			<h1 style={{ marginRight: '90px', textAlign: 'left', color: 'white' }}>
 				VIRTUAL <br></br> TOUR
 			</h1>
-			<Card style={{ width: '50rem', border: 'none' }}>
+			<Card
+				style={{
+					width: '50rem',
+					border: 'none',
+					backgroundImage: `url(${bg})`,
+					backgroundRepeat: 'no-repeat',
+					backgroundPosition: 'center',
+					backgroundSize: 'cover',
+					borderRadius: '20px',
+				}}
+			>
 				{/*Perlu benerin border radius, sama tulisan virtual tournya, dibikin komponen2 aja yaaa */}
 				<Card.Body
 					style={{
-						backgroundImage: `url(${bg})`,
-						backgroundRepeat: 'no-repeat',
-						backgroundPosition: 'center',
-						backgroundSize: 'cover',
-						borderRadius: '20px',
 						color: 'white',
 						textAlign: 'left',
 					}}

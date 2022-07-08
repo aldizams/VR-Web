@@ -8,6 +8,7 @@ import {
 import { Container } from 'react-bootstrap';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
+import bg from '../../assets/img/bg-sc.png';
 
 const AreaPage = () => {
 	const [gedung, setGedung] = useState([]);
@@ -30,52 +31,75 @@ const AreaPage = () => {
 		fetchApi();
 	}, [params]);
 	return (
-		<Container
-			fluid="sm"
-			style={{
-				display: 'flex',
-				justifyContent: 'center',
-				alignItems: 'center',
-				flexWrap: 'wrap',
-				flexDirection: 'column',
-			}}
-		>
-			<GedungCard
-				name={gedung.namaGedung}
-				img={gedung.image}
-				exp={gedung.penjelasan}
-			/>
-			<VRTour />
-			<TutorialCard />
+		<>
 			<div
+				style={{
+					backgroundImage: `url(${bg})`,
+					backgroundPosition: 'center top',
+					backgroundRepeat: 'no-repeat',
+					backgroundSize: '100% 80%',
+					border: 'none',
+				}}
+			>
+				<Container
+					fluid="sm"
+					style={{
+						display: 'flex',
+						justifyContent: 'center',
+						alignItems: 'center',
+						flexWrap: 'wrap',
+						flexDirection: 'column',
+					}}
+				>
+					<GedungCard
+						name={gedung.namaGedung}
+						img={gedung.image}
+						exp={gedung.penjelasan}
+					/>
+					<VRTour />
+				</Container>
+			</div>
+			<Container
+				fluid="sm"
 				style={{
 					display: 'flex',
 					justifyContent: 'center',
 					alignItems: 'center',
 					flexWrap: 'wrap',
+					flexDirection: 'column',
 				}}
 			>
-				{fasilitas.map((item) => (
-					<FasilitasCard
-						nama={fasilitas.namaFasilitas}
-						exp={fasilitas.penjelasan}
-						img={fasilitas.image}
-						id={fasilitas.id}
-					/>
-				))}
-			</div>
+				<TutorialCard />
+				<div
+					style={{
+						display: 'flex',
+						justifyContent: 'center',
+						alignItems: 'center',
+						flexWrap: 'wrap',
+					}}
+				>
+					{fasilitas.map((item) => (
+						<FasilitasCard
+							nama={fasilitas.namaFasilitas}
+							exp={fasilitas.penjelasan}
+							img={fasilitas.image}
+							id={fasilitas.id}
+						/>
+					))}
+				</div>
 
-			{fasilitas
-				.filter((item) => item.idGedung === params.id)
-				.map((filteredFasilitas) => (
-					<FasilitasCard
-						nama={filteredFasilitas.namaFasilitas}
-						exp={filteredFasilitas.penjelasan}
-						img={filteredFasilitas.image}
-						id={filteredFasilitas.id}
-					/>
-				))}
-		</Container>
+				{fasilitas
+					.filter((item) => item.idGedung === params.id)
+					.map((filteredFasilitas) => (
+						<FasilitasCard
+							nama={filteredFasilitas.namaFasilitas}
+							exp={filteredFasilitas.penjelasan}
+							img={filteredFasilitas.image}
+							id={filteredFasilitas.id}
+						/>
+					))}
+			</Container>
+		</>
 	);
 };
 
