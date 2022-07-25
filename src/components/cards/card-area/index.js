@@ -11,6 +11,7 @@ const AreaCard = (props) => {
 				height: '19rem',
 				border: '5px',
 				margin: '25px 0 25px 0',
+				borderRadius: '20px',
 			}}
 		>
 			<Card.Body
@@ -19,8 +20,8 @@ const AreaCard = (props) => {
 					backgroundRepeat: 'no-repeat',
 					backgroundPosition: 'center',
 					backgroundSize: 'cover',
-					borderRadius: '20px',
 					border: '3px solid #084999',
+					borderRadius: '20px',
 					display: 'flex',
 					justifyContent: 'center',
 					alignItems: 'flex-end',

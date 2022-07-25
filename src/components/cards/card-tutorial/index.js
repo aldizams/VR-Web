@@ -1,32 +1,10 @@
 import React from 'react';
 import { Card, Stack } from 'react-bootstrap';
-import bg from '../../../assets/img/bg-sc.png';
 
 const TutorialCard = () => {
 	return (
-		<Card
-			style={{
-				width: '70rem',
-				height: '19rem',
-				border: '5px',
-				margin: '25px 0 25px 0',
-			}}
-		>
-			<Card.Body
-				style={{
-					backgroundImage: `url(${bg})`,
-					backgroundRepeat: 'no-repeat',
-					backgroundPosition: 'center',
-					backgroundSize: 'cover',
-					borderRadius: '20px',
-					border: '3px solid #084999',
-					display: 'flex',
-					justifyContent: 'center',
-					alignItems: 'flex-end',
-					boxShadow: '8px 8px 16px -2px rgba(0,0,0,0.34)',
-					color: 'white',
-				}}
-			>
+		<Card className="cardTutorial">
+			<Card.Body className="cardBodyTutorial">
 				<Stack gap={3} direction="horizontal">
 					<div>
 						<svg

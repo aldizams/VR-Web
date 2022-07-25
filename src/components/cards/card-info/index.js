@@ -1,6 +1,5 @@
 import React from 'react';
 import { Card } from 'react-bootstrap';
-import bg from '../../../assets/img/gedung/IMG_4296.JPG';
 
 const InfoCard = () => {
 	return (
@@ -14,8 +13,9 @@ const InfoCard = () => {
 				border: 'none',
 				borderRadius: '20px',
 				boxShadow: '8px 8px 16px -2px rgba(0,0,0,0.34)',
-				width: '70rem',
+				width: '700rem',
 			}}
+			className="cardInfo"
 		>
 			<svg
 				xmlns="http://www.w3.org/2000/svg"

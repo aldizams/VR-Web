@@ -88,7 +88,7 @@ const AreaPage = () => {
 					))}
 				</div>
 
-				{fasilitas
+				{/* {fasilitas
 					.filter((item) => item.idGedung === params.id)
 					.map((filteredFasilitas) => (
 						<FasilitasCard
@@ -97,7 +97,7 @@ const AreaPage = () => {
 							img={filteredFasilitas.image}
 							id={filteredFasilitas.id}
 						/>
-					))}
+					))} */}
 			</Container>
 		</>
 	);
