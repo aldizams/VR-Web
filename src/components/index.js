@@ -7,6 +7,7 @@ import VRTour from './cards/card-vr';
 import Footer from './footer';
 import GedungCard from './cards/card-gedung';
 import FasilitasCard from './cards/card-fasilitas';
+import Dashboard from './admin/admin-dashboard';
 
 export {
 	Header,
@@ -18,4 +19,5 @@ export {
 	Footer,
 	GedungCard,
 	FasilitasCard,
+	Dashboard,
 };

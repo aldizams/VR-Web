@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button, Card, Form } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const Login = () => {
 	return (
@@ -18,7 +19,13 @@ const Login = () => {
 							<Form.Control type="password" placeholder="Password" />
 						</Form.Group>
 
-						<Button variant="primary" type="submit" style={{ width: '18rem' }}>
+						<Button
+							variant="primary"
+							type="submit"
+							style={{ width: '18rem' }}
+							as={Link}
+							to=""
+						>
 							Login
 						</Button>
 					</Form>

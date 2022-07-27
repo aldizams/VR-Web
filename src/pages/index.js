@@ -1,5 +1,6 @@
+import AdminPage from './admin';
 import HomePage from './home';
 import AreaPage from './location';
 import Login from './login';
 
-export { HomePage, AreaPage, Login };
+export { HomePage, AreaPage, Login, AdminPage };
