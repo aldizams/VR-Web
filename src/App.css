@@ -47,7 +47,7 @@
 .areaCardDiv {
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: space-around;
+	justify-content: space-between;
 	align-items: center;
 }
 
@@ -151,8 +151,8 @@
 }
 
 .CardArea {
-	width: 39rem;
-	height: 19rem;
+	width: 40rem;
+	height: 20rem;
 	border: 5px;
 	margin: 25px 0 25px 0;
 	border-radius: 20px;
@@ -187,4 +187,33 @@
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
+}
+@media screen and (max-height: 992px) {
+	.areaCardDiv {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-around;
+		align-items: center;
+	}
+
+	.redBgDivHomePage {
+		background-color: #c1d340;
+		background-repeat: no-repeat;
+		width: 10em;
+		height: 60em;
+		border: none;
+		position: absolute;
+		border-radius: 0px 20px 20px 0;
+		display: flex;
+		justify-content: flex-end;
+		align-items: center;
+	}
+	.cardTutorial {
+		width: 50rem;
+		height: 19rem;
+		border: none;
+		margin: 25px 0 25px 0;
+		border-radius: 20px;
+		z-index: 999;
+	}
 }
