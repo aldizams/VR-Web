@@ -1,5 +1,5 @@
-import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css';
 import { Routes, Route, Link } from 'react-router-dom';
 import { Header, Footer } from './components';
 import { AreaPage, HomePage, Login, AdminPage } from './pages';

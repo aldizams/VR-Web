@@ -2,7 +2,7 @@ import React from 'react';
 import { Card } from 'react-bootstrap';
 
 const FasilitasCard = (props) => {
-	if (props.id % 2 === 0) {
+	if (props.index % 2 === 0) {
 		return (
 			<Card>
 				<Card.Body>Ganjil</Card.Body>

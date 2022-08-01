@@ -139,4 +139,44 @@
 }
 .navLink {
 	color: white;
+	padding: 0 60px;
+	text-align: center;
+}
+.navLink [title] :active:hover::after::before {
+	content: attr(title);
+	color: white;
+}
+
+.CardArea {
+	width: 39rem;
+	height: 19rem;
+	border: 5px;
+	margin: 25px 0 25px 0;
+	border-radius: 20px;
+}
+.CardBodyArea {
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	border: 3px solid #084999;
+	border-radius: 20px;
+	display: flex;
+	justify-content: center;
+	align-items: flex-end;
+	box-shadow: 8px 8px 16px -2px rgba(0, 0, 0, 0.34);
+}
+.CardButton {
+	width: 27rem;
+	height: 3rem;
+	background-image: url(../src/assets/img/bg-upce.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	border: none;
+	border-radius: 20px;
+	color: white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 15px;
 }

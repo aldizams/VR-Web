@@ -24,6 +24,7 @@ const AreaPage = () => {
 			setFasilitas(response.data);
 		});
 	};
+
 	console.log(fasilitas);
 	console.log(params.namaGedung);
 	console.log(gedung.namaGedung);
@@ -60,12 +61,13 @@ const AreaPage = () => {
 						flexWrap: 'wrap',
 					}}
 				>
-					{fasilitas.map((item) => (
+					{fasilitas.map((item, index) => (
 						<FasilitasCard
 							nama={fasilitas.namaFasilitas}
 							exp={fasilitas.penjelasan}
 							img={fasilitas.image}
 							id={fasilitas.id}
+							index={index}
 						/>
 					))}
 				</div>

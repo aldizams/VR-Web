@@ -5,40 +5,16 @@ import { Link } from 'react-router-dom';
 
 const AreaCard = (props) => {
 	return (
-		<Card
-			style={{
-				width: '39rem',
-				height: '19rem',
-				border: '5px',
-				margin: '25px 0 25px 0',
-				borderRadius: '20px',
-			}}
-		>
+		<Card className="CardArea">
 			<Card.Body
 				style={{
 					backgroundImage: `url("${props.bg}")`,
-					backgroundRepeat: 'no-repeat',
-					backgroundPosition: 'center',
-					backgroundSize: 'cover',
-					border: '3px solid #084999',
-					borderRadius: '20px',
-					display: 'flex',
-					justifyContent: 'center',
-					alignItems: 'flex-end',
-					boxShadow: '8px 8px 16px -2px rgba(0,0,0,0.34)',
 				}}
+				className="CardBodyArea"
 			>
 				<Button
-					style={{
-						width: '27rem',
-						height: '3rem',
-						backgroundImage: `url(${btnBg})`,
-						backgroundRepeat: 'no-repeat',
-						backgroundPosition: 'center',
-						backgroundSize: 'cover',
-						border: 'none',
-						borderRadius: '20px',
-					}}
+					variant="danger"
+					className="CardButton"
 					as={Link}
 					to={`/Area/${props.name}/${props.id}`}
 					key={props.id}
