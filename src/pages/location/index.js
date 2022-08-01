@@ -41,34 +41,16 @@ const AreaPage = () => {
 					border: 'none',
 				}}
 			>
-				<Container
-					fluid="sm"
-					style={{
-						display: 'flex',
-						justifyContent: 'center',
-						alignItems: 'center',
-						flexWrap: 'wrap',
-						flexDirection: 'column',
-					}}
-				>
+				<Container fluid="sm" className="container">
 					<GedungCard
 						name={gedung.namaGedung}
 						img={gedung.image}
 						exp={gedung.penjelasan}
 					/>
-					<VRTour />
+					<VRTour style={{ zIndex: '1' }} />
 				</Container>
 			</div>
-			<Container
-				fluid="sm"
-				style={{
-					display: 'flex',
-					justifyContent: 'center',
-					alignItems: 'center',
-					flexWrap: 'wrap',
-					flexDirection: 'column',
-				}}
-			>
+			<Container fluid="sm" className="container">
 				<TutorialCard />
 				<div
 					style={{

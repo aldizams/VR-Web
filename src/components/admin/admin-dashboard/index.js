@@ -1,36 +1,53 @@
-import React from 'react';
-import { Table } from 'react-bootstrap';
+import axios from 'axios';
+import React, { useState, useEffect } from 'react';
+import { Button, Table } from 'react-bootstrap';
 
 const Dashboard = () => {
+	const [data, setData] = useState([]);
+
+	const fetchApi = async () => {
+		axios
+			.get('http://localhost:8000/gedung')
+			.then((response) => setData(response.data));
+	};
+	useEffect(() => {
+		fetchApi();
+	}, []);
+
 	return (
 		<div>
 			<Table striped bordered hover>
 				<thead>
 					<tr>
-						<th>#</th>
-						<th>First Name</th>
-						<th>Last Name</th>
-						<th>Username</th>
+						<th>id</th>
+						<th>Nama Gedung</th>
+						<th>Gambar</th>
+						<th>Link VR</th>
+						<th>Penjelasan</th>
+						<th>Update</th>
+						<th>Delete</th>
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
-						<td>1</td>
-						<td>Mark</td>
-						<td>Otto</td>
-						<td>@mdo</td>
-					</tr>
-					<tr>
-						<td>2</td>
-						<td>Jacob</td>
-						<td>Thornton</td>
-						<td>@fat</td>
-					</tr>
-					<tr>
-						<td>3</td>
-						<td colSpan={2}>Larry the Bird</td>
-						<td>@twitter</td>
-					</tr>
+					{data.map((item) => (
+						<tr>
+							<td>{item.id}</td>
+							<td>{item.namaGedung}</td>
+							<td>
+								<img src={item.image} />
+							</td>
+							<td>{item.linkTour}</td>
+							<td>{item.penjelasan}</td>
+							<td>
+								{' '}
+								<Button variant="warning">Update</Button>{' '}
+							</td>
+							<td>
+								{' '}
+								<Button variant="danger">Delete</Button>{' '}
+							</td>
+						</tr>
+					))}
 				</tbody>
 			</Table>
 		</div>

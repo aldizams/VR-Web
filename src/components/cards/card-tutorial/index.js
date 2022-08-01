@@ -3,7 +3,7 @@ import { Card, Stack } from 'react-bootstrap';
 
 const TutorialCard = () => {
 	return (
-		<Card className="cardTutorial">
+		<div className="cardTutorial">
 			<Card.Body className="cardBodyTutorial">
 				<Stack gap={3} direction="horizontal">
 					<div>
@@ -89,7 +89,7 @@ const TutorialCard = () => {
 					</div>
 				</Stack>
 			</Card.Body>
-		</Card>
+		</div>
 	);
 };
 

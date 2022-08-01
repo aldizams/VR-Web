@@ -36,11 +36,13 @@ const Header = () => {
 					style={{ position: 'relative' }}
 				>
 					<Nav className="me-auto">
-						<Nav.Link as={Link} to="/">
-							Home
+						<Nav.Link>
+							<p className="navLink" as={Link} to="/">
+								Home
+							</p>
 						</Nav.Link>
 
-						<NavDropdown title="Area" id="collasible-nav-dropdown">
+						<NavDropdown id="collasible-nav-dropdown">
 							{/* nanti disini bakal map area nama area dari axios*/}
 							{area.map((item) => (
 								<NavDropdown.Item
@@ -54,7 +56,13 @@ const Header = () => {
 								</NavDropdown.Item>
 							))}
 						</NavDropdown>
-						<Nav.Link href="https://universitaspertamina.ac.id/">UPER</Nav.Link>
+
+						<Nav.Link href="https://universitaspertamina.ac.id/">
+							<p className="navLink">UPER</p>
+						</Nav.Link>
+						<Nav.Link href="https://universitaspertamina.ac.id/pendaftaran">
+							<p className="navLink">Daftar Sekarang!</p>
+						</Nav.Link>
 					</Nav>
 				</Navbar.Collapse>
 			</Container>

@@ -9,7 +9,6 @@ const ExplainCard = () => {
 				display: 'flex',
 				justifyContent: 'center',
 				alignItems: 'center',
-				flexWrap: 'wrap',
 				margin: '40px',
 			}}
 		>

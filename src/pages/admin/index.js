@@ -4,12 +4,7 @@ import { Dashboard } from '../../components';
 
 const AdminPage = () => {
 	return (
-		<Container
-			fluid="sm"
-			style={{
-				height: '550px',
-			}}
-		>
+		<Container fluid="sm">
 			<Dashboard />
 		</Container>
 	);
