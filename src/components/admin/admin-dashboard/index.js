@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { Button, Table } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const Dashboard = () => {
 	const [data, setData] = useState([]);
@@ -16,6 +17,23 @@ const Dashboard = () => {
 
 	return (
 		<div>
+			<div className="addGroup">
+				<div style={{ padding: '20px' }}>
+					<b style={{ padding: '12px' }}>Tambah Gedung : </b>
+					<Button
+						variant="primary"
+						as={Link}
+						to="/UPerVR/admin/dashboard/add-gedung"
+					>
+						ADD
+					</Button>{' '}
+				</div>
+				<div>
+					<b style={{ padding: '20px' }}>Tambah Fasilitas : </b>
+					<Button variant="primary">ADD</Button>{' '}
+				</div>
+			</div>
+
 			<Table striped bordered hover>
 				<thead>
 					<tr>

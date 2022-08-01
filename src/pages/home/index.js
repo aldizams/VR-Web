@@ -28,11 +28,27 @@ const HomePage = () => {
 					<VRTour style={{ zIndex: '1' }} />
 				</Container>
 			</div>
-			<div className="redBgDivHomePage"></div>
-			<Container fluid="sm" className="container">
+			<div className="redBgDivHomePage">
+				<h2
+					style={{
+						color: 'white',
+						writingMode: 'tb-rl',
+						transform: 'rotate(180deg)',
+						fontSize: '50px',
+						textAlign: 'center',
+					}}
+				>
+					GEDUNG UNIVERSITAS PERTAMINA
+				</h2>
+			</div>
+			<Container
+				fluid="sm"
+				className="container"
+				style={{ paddingBottom: '25px' }}
+			>
 				<TutorialCard />
-				<InfoCard />
 			</Container>
+
 			<div className="grayBgDivHomePage">
 				<Container fluid="sm" className="container">
 					<div className="areaCardDiv">

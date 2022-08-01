@@ -78,13 +78,16 @@
 	border: none;
 }
 .redBgDivHomePage {
-	background-color: #e23429;
+	background-color: #c1d340;
 	background-repeat: no-repeat;
 	width: 16em;
 	height: 60em;
 	border: none;
 	position: absolute;
 	border-radius: 0px 20px 20px 0;
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
 }
 
 .cardTutorial {
@@ -179,4 +182,9 @@
 	justify-content: center;
 	align-items: center;
 	font-size: 15px;
+}
+.addGroup {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
 }

@@ -30,11 +30,7 @@ const Header = () => {
 				style={{ position: 'relative', width: '21em', height: '6em' }}
 			/>
 			<Container fluid>
-				<Navbar.Toggle aria-controls="responsive-navbar-nav" />
-				<Navbar.Collapse
-					id="responsive-navbar-nav"
-					style={{ position: 'relative' }}
-				>
+				<Navbar id="navbar-nav" style={{ position: 'relative' }}>
 					<Nav className="me-auto">
 						<Nav.Link as={Link} to="/">
 							<p className="navLink">Home</p>
@@ -72,7 +68,7 @@ const Header = () => {
 							<p className="navLink">Daftar Sekarang!</p>
 						</Nav.Link>
 					</Nav>
-				</Navbar.Collapse>
+				</Navbar>
 			</Container>
 		</Navbar>
 	);

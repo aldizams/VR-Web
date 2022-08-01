@@ -8,6 +8,7 @@ import Footer from './footer';
 import GedungCard from './cards/card-gedung';
 import FasilitasCard from './cards/card-fasilitas';
 import Dashboard from './admin/admin-dashboard';
+import AddGedungForm from './admin/admin-form/addForm/addGedung';
 
 export {
 	Header,
@@ -20,4 +21,5 @@ export {
 	GedungCard,
 	FasilitasCard,
 	Dashboard,
+	AddGedungForm,
 };

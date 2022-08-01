@@ -1,13 +1,10 @@
 import React from 'react';
 import { Card } from 'react-bootstrap';
+import InfoCard from '../card-info';
 
 const FasilitasCard = (props) => {
 	if (props.index % 2 === 0) {
-		return (
-			<Card>
-				<Card.Body>Ganjil</Card.Body>
-			</Card>
-		);
+		return <Card>Car</Card>;
 	} else {
 		return (
 			<Card>

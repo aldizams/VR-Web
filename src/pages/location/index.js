@@ -30,7 +30,9 @@ const AreaPage = () => {
 	console.log(gedung.namaGedung);
 	useEffect(() => {
 		fetchApi();
+		window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
 	}, [params]);
+
 	return (
 		<>
 			<div
