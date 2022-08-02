@@ -31,7 +31,7 @@ const Header = () => {
 			/>
 			<Container fluid>
 				<Navbar id="navbar-nav" style={{ position: 'relative' }}>
-					<Nav className="me-auto">
+					<Nav className="me-auto navStyle">
 						<Nav.Link as={Link} to="/">
 							<p className="navLink">Home</p>
 						</Nav.Link>

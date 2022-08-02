@@ -3,20 +3,7 @@ import { Card } from 'react-bootstrap';
 
 const InfoCard = () => {
 	return (
-		<Card
-			style={{
-				display: 'flex',
-				justifyContent: 'center',
-				alignItems: 'center',
-				flexDirection: 'row',
-				backgroundColor: '#C1D340',
-				border: 'none',
-				borderRadius: '20px',
-				boxShadow: '8px 8px 16px -2px rgba(0,0,0,0.34)',
-				width: '700rem',
-			}}
-			className="cardInfo"
-		>
+		<Card className="cardInfo">
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
 				fill="white"

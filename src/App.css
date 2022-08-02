@@ -121,7 +121,20 @@
 	border: none;
 	border-radius: 20px;
 	box-shadow: 8px 8px 16px -2px rgba(0, 0, 0, 0.34);
-	width: 700rem;
+	width: 35rem;
+	margin: 15px;
+}
+.oddInfoCard {
+	background-color: #e5382a;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: row;
+	border: none;
+	border-radius: 20px;
+	box-shadow: 8px 8px 16px -2px rgba(0, 0, 0, 0.34);
+	width: 35rem;
+	margin: 10px;
 }
 
 .login {
@@ -140,9 +153,13 @@
 		#ffffff 50%
 	);
 }
+
+.navStyle {
+	padding-left: 380px;
+}
 .navLink {
 	color: white;
-	padding: 0 60px;
+	padding-left: 50px;
 	text-align: center;
 }
 .navLink [title] :active:hover::after::before {
@@ -188,7 +205,19 @@
 	justify-content: space-around;
 	align-items: center;
 }
+.VRCard {
+	margin: 0 0 30px 0;
+	border-radius: 20px;
+	height: 680px;
+	width: 100%;
+}
 @media screen and (max-height: 992px) {
+	.VRCard {
+		margin: 0 0 30px 0;
+		border-radius: 20px;
+		height: 600px;
+		width: 90%;
+	}
 	.areaCardDiv {
 		display: flex;
 		flex-wrap: wrap;
@@ -209,11 +238,19 @@
 		align-items: center;
 	}
 	.cardTutorial {
-		width: 50rem;
+		width: 71rem;
 		height: 19rem;
 		border: none;
 		margin: 25px 0 25px 0;
 		border-radius: 20px;
 		z-index: 999;
+	}
+	.navLink {
+		color: white;
+		padding-left: 50px;
+		text-align: center;
+	}
+	.navStyle {
+		padding-left: 230px;
 	}
 }

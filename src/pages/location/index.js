@@ -55,26 +55,34 @@ const AreaPage = () => {
 			</div>
 			<Container fluid="sm" className="container">
 				<TutorialCard />
-				<div
-					style={{
-						display: 'flex',
-						justifyContent: 'center',
-						alignItems: 'center',
-						flexWrap: 'wrap',
-					}}
+			</Container>
+			<div
+				style={{
+					display: 'flex',
+					justifyContent: 'center',
+					alignItems: 'center',
+					flexWrap: 'wrap',
+				}}
+				className="grayBgDivHomePage"
+			>
+				<Container
+					fluid="sm"
+					className="container"
+					style={{ justifyContent: 'space-between' }}
 				>
 					{fasilitas.map((item, index) => (
 						<FasilitasCard
-							nama={fasilitas.namaFasilitas}
-							exp={fasilitas.penjelasan}
-							img={fasilitas.image}
-							id={fasilitas.id}
+							nama={item.namaFasilitas}
+							exp={item.penjelasan}
+							img={item.image}
+							id={item.id}
 							index={index}
 						/>
 					))}
-				</div>
+				</Container>
+			</div>
 
-				{/* {fasilitas
+			{/* {fasilitas
 					.filter((item) => item.idGedung === params.id)
 					.map((filteredFasilitas) => (
 						<FasilitasCard
@@ -84,7 +92,6 @@ const AreaPage = () => {
 							id={filteredFasilitas.id}
 						/>
 					))} */}
-			</Container>
 		</>
 	);
 };
