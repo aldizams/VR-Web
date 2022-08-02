@@ -5,7 +5,14 @@ import InfoOddCard from '../card-odd-info';
 
 const FasilitasCard = (props) => {
 	if (props.index % 3 === 0) {
-		return <InfoCard />;
+		return (
+			<InfoCard
+				nama={props.nama}
+				exp={props.exp}
+				img={props.img}
+				id={props.id}
+			/>
+		);
 	} else {
 		return (
 			<InfoOddCard
