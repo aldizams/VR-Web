@@ -50,7 +50,7 @@ const AreaPage = () => {
 						img={gedung.image}
 						exp={gedung.penjelasan}
 					/>
-					<VRTour style={{ zIndex: '1' }} />
+					<VRTour style={{ zIndex: '1' }} link={gedung.linkTour} />
 				</Container>
 			</div>
 			<Container fluid="sm" className="container">

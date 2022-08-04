@@ -34,10 +34,13 @@ const ExplainCard = () => {
 					}}
 				>
 					<p>
-						Virtual Tour merupakan Virtual Tour merupakan Virtual Tour merupakan
-						Virtual Tour merupakan Virtual Tour merupakan Virtual Tour merupakan
-						Virtual Tour merupakan Virtual Tour merupakan Virtual Tour merupakan
-						Virtual Tour merupakan Virtual Tour merupakan
+						Virtual Tour merupakan perjalanan atau tamasya di lingkungan maya.
+						Pada Virtual Campus Tour UPER ini, kalian akan berada di Kampus
+						Universitas Pertamina yang berada di Jl. Teuku Nyak Arief, Simprug,
+						Jakarta Selatan secara virtual. Kalian dapat berkeliling kampus
+						Universitas Pertamina dengan mengikuti petunjuk atau tutorial yang
+						sudah disediakan dibawah. Selamat menjelajahi Kampus Universitas
+						Pertamina!
 					</p>
 				</Card.Body>
 			</Card>
