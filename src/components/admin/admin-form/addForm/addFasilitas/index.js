@@ -1,58 +1,70 @@
 import axios from 'axios';
 import React, { useState } from 'react';
-import { Button, Form, InputGroup } from 'react-bootstrap';
+import { Button, Form } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
 const AddFasilitasForm = () => {
 	const modalSuccess = () => {
 		Swal.fire({
-			icon: 'error',
-			title: 'Oops...',
-			text: 'Something went wrong!',
-			footer: '<a href="">Why do I have this issue?</a>',
+			icon: 'success',
+			title: 'Success',
 		});
 	};
-	const [validated, setValidated] = useState(false);
 
-	const [formValue, setformValue] = React.useState({
-		idGedung: '',
-		namaFasilitas: '',
-		penjelasan: '',
-		image: '',
-	});
-	const handleSubmit = async (event) => {
+	const [validated, setValidated] = useState(false);
+	// const [data, setData] = useState({
+	// 	idGedung: '',
+	// 	namaFasilitas: '',
+	// 	penjelasan: '',
+	// 	image: '',
+	// });
+
+	// // const handleChange = (event) => {
+	// // 	setformValue({
+	// // 		...formValue,
+	// // 		[event.target.name]: event.target.value,
+	// // 	});
+	// // };
+
+	// const handleChange = (e) => {
+	// 	const value = e.target.value;
+	// 	setData({
+	// 		...data,
+	// 		[e.target.name]: value,
+	// 	});
+	// };
+
+	const handleSubmit = (event) => {
 		const form = event.currentTarget;
 		if (form.checkValidity() === false) {
 			event.preventDefault();
 			event.stopPropagation();
 		}
 
-		// store the states in the form data
-		const FormData = new FormData();
-		FormData.append('idGedung', formValue.idGedung);
-		FormData.append('namaFasilitas', formValue.namaFasilitas);
-		FormData.append('penjelasan', formValue.penjelasan);
-		FormData.append('image', formValue.image);
+		// 	event.preventDefault();
+		// 	const dataGedung = {
+		// 		idGedung: data.idGedung,
+		// 		namaFasilitas: data.namaFasilitas,
+		// 		penjelasan: data.penjelasan,
+		// 		image: data.image,
+		// 	};
 
-		try {
-			// make axios post request
-			const response = await axios({
-				method: 'post',
-				url: 'http://localhost:8000/fasilitas',
-				data: FormData,
-				headers: { 'Content-Type': 'multipart/form-data' },
-			});
-		} catch (error) {
-			console.log(error);
-		}
+		// 	// store the states in the form data
+		// 	// const FormData = new FormData();
+		// 	// FormData.append('idGedung', formValue.idGedung);
+		// 	// FormData.append('namaFasilitas', formValue.namaFasilitas);
+		// 	// FormData.append('penjelasan', formValue.penjelasan);
+		// 	// FormData.append('image', formValue.image);
+
+		// 	// make axios post request
+		// 	axios.post(`http://localhost:8000/fasilitas`, dataGedung).then(() => {
+		// 		modalSuccess();
+		// 	});
 		setValidated(true);
-	};
-
-	const handleChange = (event) => {
-		setformValue({
-			...formValue,
-			[event.target.name]: event.target.value,
-		});
+		if (validated == true) {
+			modalSuccess();
+		}
 	};
 
 	return (
@@ -67,10 +79,9 @@ const AddFasilitasForm = () => {
 					<Form.Label style={{ float: 'left' }}>Nama Fasilitas :</Form.Label>
 					<Form.Control
 						placeholder="fasilitas"
-						aria-label="fasilitas"
-						aria-describedby="basic-addon2"
-						onChange={handleChange}
-						// value={formValue.namaFasilitas}
+						// onChange={handleChange}
+						// value={data.namaFasilitas}
+						// defaultValue={formValue.namaFasilitas}
 						required
 					/>
 					<Form.Control.Feedback type="invalid">
@@ -84,10 +95,8 @@ const AddFasilitasForm = () => {
 					</Form.Label>
 					<Form.Control
 						placeholder="ini adalah ..."
-						aria-label="fasilitas"
-						aria-describedby="basic-addon2"
-						// value={formValue.penjelasan}
-						onChange={handleChange}
+						// value={data.penjelasan}
+						// onChange={handleChange}
 						required
 					/>
 					<Form.Control.Feedback type="invalid">
@@ -100,11 +109,9 @@ const AddFasilitasForm = () => {
 						ID Gedung Fasilitas :
 					</Form.Label>
 					<Form.Control
-						placeholder="1"
-						aria-label="fasilitas"
-						aria-describedby="basic-addon2"
-						// value={formValue.idGedung}
-						onChange={handleChange}
+						placeholder="1,2,3,4,..."
+						// value={data.idGedung}
+						// onChange={handleChange}
 						required
 					/>
 					<Form.Control.Feedback type="invalid">
@@ -116,10 +123,11 @@ const AddFasilitasForm = () => {
 					<Form.Label style={{ float: 'left' }}>Gambar Fasilitas:</Form.Label>
 					<Form.Control
 						type="file"
-						// value={formValue.image}
-						onChange={handleChange}
+						// defaultValue={data.image}
+						// value={data.image}
+						// onChange={handleChange}
 						required
-					/>{' '}
+					/>
 					<Form.Control.Feedback type="invalid">
 						Gambar Fasilitas Kosong!
 					</Form.Control.Feedback>
@@ -131,26 +139,17 @@ const AddFasilitasForm = () => {
 					<Button
 						variant="primary"
 						type="submit"
-						onClick={() => {
-							modalSuccess();
-						}}
+						// onClick={() => {
+						// 	modalSuccess();
+						// }}
 					>
 						ADD
 					</Button>{' '}
-					<Button variant="danger">Cancel</Button>{' '}
+					<Button variant="danger" as={Link} to={`/UPerVR/admin/dashboard`}>
+						Cancel
+					</Button>{' '}
 				</div>
 			</Form>
-
-			{/* 
-			<div id="dynamicCheck">
-				<input
-					type="button"
-					value="Create Element"
-					onClick={createNewElement()}
-				/>
-			</div>
-
-			<div id="newElementId">New inputbox goes here:</div> */}
 		</div>
 	);
 };

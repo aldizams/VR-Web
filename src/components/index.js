@@ -12,6 +12,8 @@ import AddGedungForm from './admin/admin-form/addForm/addGedung';
 import InfoOddCard from './cards/card-odd-info';
 import AddFasilitasForm from './admin/admin-form/addForm/addFasilitas';
 import DashboardFasilitas from './admin/admin-dashboard-fasilitas';
+import UpdateGedungForm from './admin/admin-form/updateForm/updateGedung';
+import UpdateFasilitasForm from './admin/admin-form/updateForm/updateFasilitas';
 
 export {
 	Header,
@@ -28,4 +30,6 @@ export {
 	AddFasilitasForm,
 	InfoOddCard,
 	DashboardFasilitas,
+	UpdateGedungForm,
+	UpdateFasilitasForm,
 };

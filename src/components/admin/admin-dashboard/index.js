@@ -87,7 +87,14 @@ const Dashboard = () => {
 
 								<td>
 									{' '}
-									<Button variant="warning">Update</Button>{' '}
+									<Button
+										variant="warning"
+										as={Link}
+										to={`/UPerVR/admin/dashboard/update-gedung/${item.id}`}
+										id={item.id}
+									>
+										Update
+									</Button>{' '}
 								</td>
 								<td>
 									{' '}

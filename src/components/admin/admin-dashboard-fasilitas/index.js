@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { Button, Table } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
 const DashboardFasilitas = () => {
@@ -63,7 +64,14 @@ const DashboardFasilitas = () => {
 
 							<td>
 								{' '}
-								<Button variant="warning">Update</Button>{' '}
+								<Button
+									variant="warning"
+									as={Link}
+									to={`/UPerVR/admin/dashboard/update-fasilitas/${item.id}`}
+									id={item.id}
+								>
+									Update
+								</Button>{' '}
 							</td>
 							<td>
 								{' '}

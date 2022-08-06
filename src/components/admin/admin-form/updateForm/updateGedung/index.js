@@ -1,9 +1,20 @@
-import React, { useState } from 'react';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
-const AddGedungForm = () => {
+const UpdateGedungForm = () => {
+	const [data, setData] = useState([]);
+	const params = useParams();
+	const fetchApi = async () => {
+		axios
+			.get(`http://localhost:8000/gedung/${params.id}`)
+			.then((response) => setData(response.data));
+	};
+	useEffect(() => {
+		fetchApi();
+	}, []);
 	const modalSuccess = () => {
 		Swal.fire({
 			icon: 'success',
@@ -39,6 +50,7 @@ const AddGedungForm = () => {
 						placeholder="tempat"
 						aria-label="tempat"
 						aria-describedby="basic-addon2"
+						defaultValue={data.namaGedung}
 						required
 					/>
 					<Form.Control.Feedback type="invalid">
@@ -52,6 +64,7 @@ const AddGedungForm = () => {
 						placeholder="tempat ini digunakan untuk ..."
 						aria-label="tempat"
 						aria-describedby="basic-addon2"
+						defaultValue={data.penjelasan}
 						required
 					/>
 					<Form.Control.Feedback type="invalid">
@@ -65,6 +78,7 @@ const AddGedungForm = () => {
 						placeholder="kuula.com"
 						aria-label="tempat"
 						aria-describedby="basic-addon2"
+						defaultValue={data.linkTour}
 						required
 					/>
 					<Form.Control.Feedback type="invalid">
@@ -74,7 +88,7 @@ const AddGedungForm = () => {
 
 				<Form.Group className="mb-3" controlId="validationGambarGedung">
 					<Form.Label style={{ float: 'left' }}>Gambar Gedung :</Form.Label>
-					<Form.Control type="file" required />{' '}
+					<Form.Control type="file" required defaultValue={data.image} />{' '}
 					<Form.Control.Feedback type="invalid">
 						Gambar Gedung Kosong!
 					</Form.Control.Feedback>
@@ -112,4 +126,4 @@ const AddGedungForm = () => {
 	);
 };
 
-export default AddGedungForm;
+export default UpdateGedungForm;

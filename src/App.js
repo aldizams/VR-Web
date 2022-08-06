@@ -9,6 +9,8 @@ import {
 	AdminPage,
 	AddGedungPage,
 	AddFasilitasPage,
+	UpdateFasilitas,
+	UpdateGedung,
 } from './pages';
 import { useEffect } from 'react';
 
@@ -28,6 +30,14 @@ function App() {
 				<Route
 					path="/UPerVR/admin/dashboard/add-fasilitas"
 					element={<AddFasilitasPage />}
+				/>
+				<Route
+					path="/UPerVR/admin/dashboard/update-fasilitas/:id"
+					element={<UpdateFasilitas />}
+				/>
+				<Route
+					path="/UPerVR/admin/dashboard/update-gedung/:id"
+					element={<UpdateGedung />}
 				/>
 			</Routes>
 			<Footer />

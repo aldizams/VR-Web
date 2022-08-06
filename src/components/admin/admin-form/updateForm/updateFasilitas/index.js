@@ -1,15 +1,28 @@
-import React, { useState } from 'react';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
-const AddGedungForm = () => {
+const UpdateFasilitasForm = () => {
+	const [data, setData] = useState([]);
+	const params = useParams();
+	const fetchApi = async () => {
+		axios
+			.get(`http://localhost:8000/fasilitas/${params.id}`)
+			.then((response) => setData(response.data));
+	};
+	useEffect(() => {
+		fetchApi();
+	}, []);
+
 	const modalSuccess = () => {
 		Swal.fire({
 			icon: 'success',
 			title: 'Success',
 		});
 	};
+
 	const [validated, setValidated] = useState(false);
 
 	const handleSubmit = (event) => {
@@ -29,54 +42,67 @@ const AddGedungForm = () => {
 		<div style={{ padding: '150px 0' }}>
 			<div style={{ paddingBottom: '60px' }}>
 				<h3 style={{ float: 'left', textDecoration: 'underline' }}>
-					TAMBAH GEDUNG
+					TAMBAH FASILITAS
 				</h3>
 			</div>
 			<Form noValidate validated={validated} onSubmit={handleSubmit}>
 				<Form.Group className="mb-3" controlId="validationNamaGedung">
-					<Form.Label style={{ float: 'left' }}>Nama Gedung :</Form.Label>
+					<Form.Label style={{ float: 'left' }}>Nama Fasilitas :</Form.Label>
 					<Form.Control
-						placeholder="tempat"
-						aria-label="tempat"
-						aria-describedby="basic-addon2"
+						placeholder="fasilitas"
+						// onChange={handleChange}
+						// value={data.namaFasilitas}
+						defaultValue={data.namaFasilitas}
 						required
 					/>
 					<Form.Control.Feedback type="invalid">
-						Nama Gedung Kosong!
+						Nama Fasilitas Kosong!
 					</Form.Control.Feedback>
 				</Form.Group>
 
 				<Form.Group className="mb-3" controlId="validationPenjelasanGedung">
-					<Form.Label style={{ float: 'left' }}>Penjelasan Gedung :</Form.Label>
+					<Form.Label style={{ float: 'left' }}>
+						Penjelasan Fasilitas :
+					</Form.Label>
 					<Form.Control
-						placeholder="tempat ini digunakan untuk ..."
-						aria-label="tempat"
-						aria-describedby="basic-addon2"
+						placeholder="ini adalah ..."
+						// value={data.penjelasan}
+						// onChange={handleChange}
+						defaultValue={data.penjelasan}
 						required
 					/>
 					<Form.Control.Feedback type="invalid">
-						Penjelasan Gedung Kosong!
+						Penjelasan Fasilitas Kosong!
 					</Form.Control.Feedback>
 				</Form.Group>
 
 				<Form.Group className="mb-3" controlId="validationPenjelasanGedung">
-					<Form.Label style={{ float: 'left' }}>Lik VR Gedung :</Form.Label>
+					<Form.Label style={{ float: 'left' }}>
+						ID Gedung Fasilitas :
+					</Form.Label>
 					<Form.Control
-						placeholder="kuula.com"
-						aria-label="tempat"
-						aria-describedby="basic-addon2"
+						placeholder="1,2,3,4,..."
+						// value={data.idGedung}
+						// onChange={handleChange}
+						defaultValue={data.idGedung}
 						required
 					/>
 					<Form.Control.Feedback type="invalid">
-						Link VR Gedung Kosong!
+						ID Gedung Kosong!
 					</Form.Control.Feedback>
 				</Form.Group>
 
 				<Form.Group className="mb-3" controlId="validationGambarGedung">
-					<Form.Label style={{ float: 'left' }}>Gambar Gedung :</Form.Label>
-					<Form.Control type="file" required />{' '}
+					<Form.Label style={{ float: 'left' }}>Gambar Fasilitas:</Form.Label>
+					<Form.Control
+						type="file"
+						defaultValue={data.image}
+						// value={data.image}
+						// onChange={handleChange}
+						required
+					/>
 					<Form.Control.Feedback type="invalid">
-						Gambar Gedung Kosong!
+						Gambar Fasilitas Kosong!
 					</Form.Control.Feedback>
 				</Form.Group>
 				<div
@@ -87,7 +113,7 @@ const AddGedungForm = () => {
 						variant="primary"
 						type="submit"
 						// onClick={() => {
-						// 	handleSubmit();
+						// 	modalSuccess();
 						// }}
 					>
 						ADD
@@ -97,19 +123,8 @@ const AddGedungForm = () => {
 					</Button>{' '}
 				</div>
 			</Form>
-
-			{/* 
-			<div id="dynamicCheck">
-				<input
-					type="button"
-					value="Create Element"
-					onClick={createNewElement()}
-				/>
-			</div>
-
-			<div id="newElementId">New inputbox goes here:</div> */}
 		</div>
 	);
 };
 
-export default AddGedungForm;
+export default UpdateFasilitasForm;

@@ -18,7 +18,6 @@ const InfoOddCard = (props) => {
 				<b
 					style={{
 						color: '#0057B1',
-
 						fontSize: '18px',
 					}}
 				>
