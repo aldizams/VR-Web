@@ -17,8 +17,8 @@ const ExplainCard = () => {
 			</h1>
 			<Card
 				style={{
-					width: '50rem',
-					border: 'none',
+					width: '55rem',
+					border: '3px solid #E4372A',
 					backgroundImage: `url(${bg})`,
 					backgroundRepeat: 'no-repeat',
 					backgroundPosition: 'center',

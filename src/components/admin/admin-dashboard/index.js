@@ -2,8 +2,26 @@ import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { Button, Table } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-
+import Swal from 'sweetalert2';
 const Dashboard = () => {
+	const deleteData = (item) => {
+		Swal.fire({
+			title: 'Are you sure?',
+			text: "You won't be able to revert this!",
+			icon: 'warning',
+			showCancelButton: true,
+			confirmButtonColor: '#3085d6',
+			cancelButtonColor: '#d33',
+			confirmButtonText: 'Yes, delete it!',
+		}).then((result) => {
+			if (result.isConfirmed) {
+				axios.delete(`http://localhost:8000/gedung/${item}`).then(() => {
+					Swal.fire('Deleted!', 'Your file has been deleted.', 'success');
+				});
+			}
+		});
+	};
+
 	const [data, setData] = useState([]);
 
 	const fetchApi = async () => {
@@ -13,7 +31,7 @@ const Dashboard = () => {
 	};
 	useEffect(() => {
 		fetchApi();
-	}, []);
+	}, [data]);
 
 	return (
 		<div>
@@ -29,45 +47,64 @@ const Dashboard = () => {
 					</Button>{' '}
 				</div>
 				<div>
-					<b style={{ padding: '20px' }}>Tambah Fasilitas : </b>
-					<Button variant="primary">ADD</Button>{' '}
+					<b style={{ padding: '20px' }}>Tambah Ruang : </b>
+					<Button
+						variant="primary"
+						as={Link}
+						to="/UPerVR/admin/dashboard/add-fasilitas"
+					>
+						ADD
+					</Button>{' '}
 				</div>
 			</div>
-
-			<Table striped bordered hover>
-				<thead>
-					<tr>
-						<th>id</th>
-						<th>Nama Gedung</th>
-						<th>Gambar</th>
-						<th>Link VR</th>
-						<th>Penjelasan</th>
-						<th>Update</th>
-						<th>Delete</th>
-					</tr>
-				</thead>
-				<tbody>
-					{data.map((item) => (
+			<div>
+				<div>
+					<h2>Tabel Gedung</h2>
+				</div>
+				<Table striped bordered hover responsive>
+					<thead>
 						<tr>
-							<td>{item.id}</td>
-							<td>{item.namaGedung}</td>
-							<td>
-								<img src={item.image} />
-							</td>
-							<td>{item.linkTour}</td>
-							<td>{item.penjelasan}</td>
-							<td>
-								{' '}
-								<Button variant="warning">Update</Button>{' '}
-							</td>
-							<td>
-								{' '}
-								<Button variant="danger">Delete</Button>{' '}
-							</td>
+							<th>id</th>
+							<th>Nama Gedung</th>
+							<th>Gambar</th>
+							<th>Link VR</th>
+							<th>Penjelasan</th>
+
+							<th>Update</th>
+							<th>Delete</th>
 						</tr>
-					))}
-				</tbody>
-			</Table>
+					</thead>
+					<tbody>
+						{data.map((item) => (
+							<tr>
+								<td>{item.id}</td>
+								<td>{item.namaGedung}</td>
+								<td>
+									<img src={item.image} />
+								</td>
+								<td>{item.linkTour}</td>
+								<td>{item.penjelasan}</td>
+
+								<td>
+									{' '}
+									<Button variant="warning">Update</Button>{' '}
+								</td>
+								<td>
+									{' '}
+									<Button
+										variant="danger"
+										onClick={() => {
+											deleteData(item.id);
+										}}
+									>
+										Delete
+									</Button>{' '}
+								</td>
+							</tr>
+						))}
+					</tbody>
+				</Table>
+			</div>
 		</div>
 	);
 };

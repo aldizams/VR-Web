@@ -117,20 +117,20 @@
 	justify-content: center;
 	align-items: center;
 	flex-direction: row;
-	background-color: #c1d340;
-	border: none;
+	background-color: #ffff 35%;
+	border: 3px solid #c1d340;
 	border-radius: 20px;
 	box-shadow: 8px 8px 16px -2px rgba(0, 0, 0, 0.34);
 	width: 35rem;
 	margin: 15px;
 }
 .oddInfoCard {
-	background-color: #e5382a;
+	background-color: #ffff 35%;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	flex-direction: row;
-	border: none;
+	border: 3px solid #e4372a;
 	border-radius: 20px;
 	box-shadow: 8px 8px 16px -2px rgba(0, 0, 0, 0.34);
 	width: 35rem;
@@ -145,13 +145,6 @@
 	background-color: #ffffff;
 	opacity: 1;
 	background-size: 4px 4px;
-	background-image: repeating-linear-gradient(
-		45deg,
-		#000000 0,
-		#000000 0.4px,
-		#ffffff 0,
-		#ffffff 50%
-	);
 }
 
 .navStyle {

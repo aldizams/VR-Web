@@ -2,7 +2,14 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import { Routes, Route, Link } from 'react-router-dom';
 import { Header, Footer } from './components';
-import { AreaPage, HomePage, Login, AdminPage, AddGedungPage } from './pages';
+import {
+	AreaPage,
+	HomePage,
+	Login,
+	AdminPage,
+	AddGedungPage,
+	AddFasilitasPage,
+} from './pages';
 import { useEffect } from 'react';
 
 function App() {
@@ -17,6 +24,10 @@ function App() {
 				<Route
 					path="/UPerVR/admin/dashboard/add-gedung"
 					element={<AddGedungPage />}
+				/>
+				<Route
+					path="/UPerVR/admin/dashboard/add-fasilitas"
+					element={<AddFasilitasPage />}
 				/>
 			</Routes>
 			<Footer />

@@ -15,8 +15,21 @@ const GedungCard = (props) => {
 			<Card.Body style={{ display: 'flex' }}>
 				<div>
 					<h1 style={{ color: 'white' }}>{props.name}</h1>
-					<div style={{ backgroundImage: `${bg}` }}>
-						<h1>{props.exp}</h1>
+					<div
+						style={{
+							backgroundColor: 'white',
+							width: '35rem',
+							height: '18rem',
+							borderRadius: '20px',
+							margin: '10px 50px 0px 25px',
+							display: 'flex',
+							justifyContent: 'center',
+							alignItems: 'center',
+							padding: '100px',
+							color: '#6B7280',
+						}}
+					>
+						<h5>{props.exp}</h5>
 					</div>
 				</div>
 				<div>
@@ -24,7 +37,7 @@ const GedungCard = (props) => {
 						src={props.img}
 						width="100%"
 						style={{
-							border: '3px solid white',
+							border: '3px solid #0057B1',
 							borderRadius: '20px',
 							boxShadow: '10px 10px 15px -4px rgba(0,0,0,0.67)',
 						}}

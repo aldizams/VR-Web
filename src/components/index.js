@@ -10,6 +10,8 @@ import FasilitasCard from './cards/card-fasilitas';
 import Dashboard from './admin/admin-dashboard';
 import AddGedungForm from './admin/admin-form/addForm/addGedung';
 import InfoOddCard from './cards/card-odd-info';
+import AddFasilitasForm from './admin/admin-form/addForm/addFasilitas';
+import DashboardFasilitas from './admin/admin-dashboard-fasilitas';
 
 export {
 	Header,
@@ -23,5 +25,7 @@ export {
 	FasilitasCard,
 	Dashboard,
 	AddGedungForm,
+	AddFasilitasForm,
 	InfoOddCard,
+	DashboardFasilitas,
 };

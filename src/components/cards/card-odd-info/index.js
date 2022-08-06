@@ -15,9 +15,19 @@ const InfoOddCard = (props) => {
 			/>
 
 			<Card.Body>
-				<b style={{ color: 'white' }}>{props.nama}</b>
+				<b
+					style={{
+						color: '#0057B1',
+
+						fontSize: '18px',
+					}}
+				>
+					{props.nama}
+				</b>
 				<br />
-				<p>{props.exp}</p>
+				<div>
+					<p>{props.exp}</p>
+				</div>
 			</Card.Body>
 		</Card>
 	);
