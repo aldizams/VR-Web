@@ -13,7 +13,7 @@ const AreaCard = (props) => {
 				className="CardBodyArea"
 			>
 				<Button
-					variant="danger"
+					variant="success"
 					className="CardButton"
 					as={Link}
 					to={`/Area/${props.name}/${props.id}`}
