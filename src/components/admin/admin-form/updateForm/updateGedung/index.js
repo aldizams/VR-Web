@@ -40,7 +40,7 @@ const UpdateGedungForm = () => {
 		<div style={{ padding: '150px 0' }}>
 			<div style={{ paddingBottom: '60px' }}>
 				<h3 style={{ float: 'left', textDecoration: 'underline' }}>
-					TAMBAH GEDUNG
+					UPDATE GEDUNG
 				</h3>
 			</div>
 			<Form noValidate validated={validated} onSubmit={handleSubmit}>

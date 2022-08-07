@@ -42,7 +42,7 @@ const UpdateFasilitasForm = () => {
 		<div style={{ padding: '150px 0' }}>
 			<div style={{ paddingBottom: '60px' }}>
 				<h3 style={{ float: 'left', textDecoration: 'underline' }}>
-					TAMBAH FASILITAS
+					UPDATE FASILITAS
 				</h3>
 			</div>
 			<Form noValidate validated={validated} onSubmit={handleSubmit}>
