@@ -10,9 +10,10 @@ const Login = () => {
 		if (form.checkValidity() === false) {
 			event.preventDefault();
 			event.stopPropagation();
+		} else {
+			setValidated(true);
+			window.location.href = 'http://localhost:3000/UPerVR/admin/dashboard';
 		}
-
-		setValidated(true);
 	};
 	return (
 		<div className="login">
@@ -34,19 +35,18 @@ const Login = () => {
 
 						<Form.Group className="mb-3" controlId="formBasicPassword">
 							<Form.Label>Password</Form.Label>
-							<Form.Control type="password" placeholder="Password" required />
+							<Form.Control
+								type="password"
+								placeholder="Password"
+								required
+								minLength={8}
+							/>
 							<Form.Control.Feedback type="invalid">
 								Password Kosong!
 							</Form.Control.Feedback>
 						</Form.Group>
 
-						<Button
-							variant="primary"
-							type="submit"
-							style={{ width: '18rem' }}
-							as={Link}
-							to={`/UPerVR/admin/dashboard`}
-						>
+						<Button variant="primary" type="submit" style={{ width: '18rem' }}>
 							Login
 						</Button>
 					</Form>

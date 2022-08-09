@@ -13,21 +13,31 @@ import bg from '../../assets/img/bg-sc.png';
 const AreaPage = () => {
 	const [gedung, setGedung] = useState([]);
 	const [fasilitas, setFasilitas] = useState([]);
+	var hasil = [];
 	const params = useParams();
-	console.log(params);
+
 	const fetchApi = async () => {
 		axios.get(`http://localhost:8000/gedung/${params.id}`).then((response) => {
 			setGedung(response.data);
 		});
 
 		axios.get(`http://localhost:8000/fasilitas/`).then((response) => {
-			setFasilitas(response.data);
+			console.log(params.id);
+			console.log(response.data.length);
+			for (let i = 0; i < response.data.length; i++) {
+				if (params.id == response.data[i].idGedung) {
+					console.log(response.data[i].idGedung);
+					hasil.push(response.data[i]);
+				}
+			}
+			setFasilitas(hasil);
 		});
 	};
 
-	console.log(fasilitas);
-	console.log(params.namaGedung);
-	console.log(gedung.namaGedung);
+	// console.log(fasilitas);
+	// console.log(params.namaGedung);
+	// console.log(gedung.namaGedung);
+	// console.log(hasilFilter);
 	useEffect(() => {
 		fetchApi();
 		window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
