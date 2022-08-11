@@ -8,7 +8,6 @@ const Footer = () => {
 			<div
 				style={{
 					backgroundImage: `url(${bg})`,
-					height: '8rem',
 					display: 'flex',
 					justifyContent: 'center',
 					alignItems: 'center',
@@ -16,7 +15,12 @@ const Footer = () => {
 					height: '330px',
 				}}
 			>
-				<img src={logo} width="190rem" style={{ margin: '0px 40px' }}></img>
+				<img
+					src={logo}
+					width="190rem"
+					style={{ margin: '0px 40px' }}
+					alt="LogoUPER"
+				></img>
 				<p
 					style={{
 						width: '19rem',

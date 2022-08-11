@@ -1,6 +1,5 @@
 import React from 'react';
 import { Card } from 'react-bootstrap';
-import bg from '../../../assets/img/bg-upce.png';
 
 const GedungCard = (props) => {
 	return (

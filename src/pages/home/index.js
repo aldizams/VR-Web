@@ -1,13 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Container } from 'react-bootstrap';
 import axios from 'axios';
-import {
-	AreaCard,
-	InfoCard,
-	TutorialCard,
-	ExplainCard,
-	VRTour,
-} from '../../components';
+import { AreaCard, TutorialCard, ExplainCard, VRTour } from '../../components';
 
 const HomePage = () => {
 	const [area, setArea] = useState([]);

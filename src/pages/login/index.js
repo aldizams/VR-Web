@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Button, Card, Form } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
 
 const Login = () => {
 	const [validated, setValidated] = useState(false);
@@ -19,7 +18,10 @@ const Login = () => {
 		<div className="login">
 			<Card style={{ width: '20rem' }}>
 				<Card.Body>
-					<img src="https://sso.universitaspertamina.ac.id/images/logo.png" />
+					<img
+						src="https://sso.universitaspertamina.ac.id/images/logo.png"
+						alt="LogoUPER"
+					/>
 					<Form
 						style={{ paddingBottom: '26px' }}
 						onSubmit={handleSubmit}

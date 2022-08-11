@@ -1,6 +1,5 @@
 import React from 'react';
 import { Card, Button } from 'react-bootstrap';
-import btnBg from '../../../assets/img/bg-upce.png';
 import { Link } from 'react-router-dom';
 
 const AreaCard = (props) => {

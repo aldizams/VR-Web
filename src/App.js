@@ -1,6 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
-import { Routes, Route, Link } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import { Header, Footer } from './components';
 import {
 	AreaPage,
@@ -12,7 +12,6 @@ import {
 	UpdateFasilitas,
 	UpdateGedung,
 } from './pages';
-import { useEffect } from 'react';
 
 function App() {
 	return (

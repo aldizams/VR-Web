@@ -1,5 +1,4 @@
 import React from 'react';
-import { Card } from 'react-bootstrap';
 import InfoCard from '../card-info';
 import InfoOddCard from '../card-odd-info';
 
