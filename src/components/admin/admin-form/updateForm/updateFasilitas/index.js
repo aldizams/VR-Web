@@ -1,42 +1,80 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
 const UpdateFasilitasForm = () => {
 	const [data, setData] = useState([]);
 	const params = useParams();
+
+	const [namaFasilitas, setNamaFasilitas] = useState('');
+	const [penjelasan, setPenjelasan] = useState('');
+	const [image, setImage] = useState('');
+	const [idGedung, setIdGedung] = useState('');
+	const navigate = useNavigate();
+
+	const [validated, setValidated] = useState(false);
+
+	const modalSuccess = () => {
+		Swal.fire({
+			position: 'center',
+			icon: 'success',
+			title: 'Update Fasilitas Success',
+			showConfirmButton: false,
+			timer: 1300,
+		});
+	};
+	const modalError = () => {
+		Swal.fire({
+			position: 'center',
+			icon: 'error',
+			title: 'Update Fasilitas Failed',
+			showConfirmButton: false,
+			timer: 1300,
+		});
+	};
+
+	const Submit = (namaFasilitas, penjelasan, image, idGedung) => {
+		const bodyJSON = {
+			idGedung: idGedung,
+			namaFasilitas: namaFasilitas,
+			penjelasan: penjelasan,
+			image: image,
+		};
+		return axios.put(`http://localhost:8000/fasilitas/${params.id}`, bodyJSON);
+	};
+
+	const handleSubmit = async (event) => {
+		const form = event.currentTarget;
+		if (form.checkValidity() === false) {
+			event.preventDefault();
+			event.stopPropagation();
+		} else {
+			setValidated(true);
+			event.preventDefault();
+			await Submit(namaFasilitas, penjelasan, image, idGedung)
+				.then(() => {
+					modalSuccess();
+					setTimeout(() => navigate('/UPerVR/admin/dashboard'), 1300);
+				})
+				.catch(() => modalError());
+		}
+	};
+
 	const fetchApi = async () => {
 		axios
 			.get(`http://localhost:8000/fasilitas/${params.id}`)
 			.then((response) => setData(response.data));
 	};
+
 	useEffect(() => {
 		fetchApi();
-	}, []);
-
-	const modalSuccess = () => {
-		Swal.fire({
-			icon: 'success',
-			title: 'Success',
-		});
-	};
-
-	const [validated, setValidated] = useState(false);
-
-	const handleSubmit = (event) => {
-		const form = event.currentTarget;
-		if (form.checkValidity() === false) {
-			event.preventDefault();
-			event.stopPropagation();
-		}
-
-		setValidated(true);
-		if (validated == true) {
-			modalSuccess();
-		}
-	};
+		setNamaFasilitas(data.namaFasilitas);
+		setPenjelasan(data.penjelasan);
+		setImage(data.image);
+		setIdGedung(data.idGedung);
+	}, [data.id]);
 
 	return (
 		<div style={{ padding: '150px 0' }}>
@@ -50,9 +88,8 @@ const UpdateFasilitasForm = () => {
 					<Form.Label style={{ float: 'left' }}>Nama Fasilitas :</Form.Label>
 					<Form.Control
 						placeholder="fasilitas"
-						// onChange={handleChange}
-						// value={data.namaFasilitas}
-						defaultValue={data.namaFasilitas}
+						value={namaFasilitas}
+						onChange={(e) => setNamaFasilitas(e.target.value)}
 						required
 					/>
 					<Form.Control.Feedback type="invalid">
@@ -66,9 +103,8 @@ const UpdateFasilitasForm = () => {
 					</Form.Label>
 					<Form.Control
 						placeholder="ini adalah ..."
-						// value={data.penjelasan}
-						// onChange={handleChange}
-						defaultValue={data.penjelasan}
+						value={penjelasan}
+						onChange={(e) => setPenjelasan(e.target.value)}
 						required
 					/>
 					<Form.Control.Feedback type="invalid">
@@ -82,9 +118,8 @@ const UpdateFasilitasForm = () => {
 					</Form.Label>
 					<Form.Control
 						placeholder="1,2,3,4,..."
-						// value={data.idGedung}
-						// onChange={handleChange}
-						defaultValue={data.idGedung}
+						value={idGedung}
+						onChange={(e) => setIdGedung(e.target.value)}
 						required
 					/>
 					<Form.Control.Feedback type="invalid">
@@ -95,10 +130,9 @@ const UpdateFasilitasForm = () => {
 				<Form.Group className="mb-3" controlId="validationGambarGedung">
 					<Form.Label style={{ float: 'left' }}>Gambar Fasilitas:</Form.Label>
 					<Form.Control
-						type="file"
-						defaultValue={data.image}
-						// value={data.image}
-						// onChange={handleChange}
+						type="text"
+						value={image}
+						onChange={(e) => setImage(e.target.value)}
 						required
 					/>
 					<Form.Control.Feedback type="invalid">
@@ -109,13 +143,7 @@ const UpdateFasilitasForm = () => {
 					className="addGroup"
 					style={{ justifyContent: 'space-evenly', paddingTop: '25px' }}
 				>
-					<Button
-						variant="primary"
-						type="submit"
-						// onClick={() => {
-						// 	modalSuccess();
-						// }}
-					>
+					<Button variant="primary" type="submit">
 						ADD
 					</Button>{' '}
 					<Button variant="danger" as={Link} to={`/UPerVR/admin/dashboard`}>

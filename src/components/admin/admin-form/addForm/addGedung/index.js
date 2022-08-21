@@ -11,6 +11,8 @@ const AddGedungForm = () => {
 	const [linkTour, setLinkTour] = useState('');
 	const navigate = useNavigate();
 
+	const [validated, setValidated] = useState(false);
+
 	const modalSuccess = () => {
 		Swal.fire({
 			position: 'center',
@@ -39,7 +41,6 @@ const AddGedungForm = () => {
 		};
 		return axios.post('http://localhost:8000/gedung', bodyJSON);
 	};
-	const [validated, setValidated] = useState(false);
 
 	const handleSubmit = async (event) => {
 		const form = event.currentTarget;
