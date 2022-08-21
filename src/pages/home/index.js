@@ -21,7 +21,7 @@ const HomePage = () => {
 					<ExplainCard />
 					<VRTour
 						style={{ zIndex: '1' }}
-						link="https://kuula.co/share/collection/7vj4f?logo=1&card=1&info=1&fs=1&vr=1&thumbs=3&margin=8&alpha=0.60&inst=0"
+						link="https://kuula.co/share/collection/7vj4f?logo=1&card=1&info=1&fs=1&vr=1&zoom=1&thumbs=3&margin=8&alpha=0.60&inst=0"
 					/>
 				</Container>
 			</div>

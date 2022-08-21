@@ -8,6 +8,7 @@ const VRTour = (props) => {
 			allowFullScreen="true"
 			frameBorder={'0'}
 			className="VRCard"
+			scrolling="no"
 		></iframe>
 	);
 };
