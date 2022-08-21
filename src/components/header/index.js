@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom';
 
 const Header = () => {
 	const isLogin = Cookies.get('token');
+	const [refresh, setRefresh] = useState(false);
 	const [area, setArea] = useState([]);
 	const navigate = useNavigate();
 
@@ -18,7 +19,7 @@ const Header = () => {
 	};
 	useEffect(() => {
 		fetchApi();
-	}, []);
+	}, [refresh]);
 
 	return (
 		<Navbar
@@ -43,6 +44,7 @@ const Header = () => {
 							title="Area"
 							id="collasible-nav-dropdown"
 							className="navLink"
+							onClick={() => setRefresh(!refresh)}
 						>
 							{area.map((item) => (
 								<NavDropdown.Item
