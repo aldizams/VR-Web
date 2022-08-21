@@ -87,17 +87,6 @@ const AreaPage = () => {
 					))}
 				</Container>
 			</div>
-
-			{/* {fasilitas
-					.filter((item) => item.idGedung === params.id)
-					.map((filteredFasilitas) => (
-						<FasilitasCard
-							nama={filteredFasilitas.namaFasilitas}
-							exp={filteredFasilitas.penjelasan}
-							img={filteredFasilitas.image}
-							id={filteredFasilitas.id}
-						/>
-					))} */}
 		</>
 	);
 };
