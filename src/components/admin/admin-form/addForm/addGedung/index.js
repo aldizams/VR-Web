@@ -10,7 +10,6 @@ const AddGedungForm = () => {
 	const [image, setImage] = useState('');
 	const [linkTour, setLinkTour] = useState('');
 	const navigate = useNavigate();
-
 	const [validated, setValidated] = useState(false);
 
 	const modalSuccess = () => {

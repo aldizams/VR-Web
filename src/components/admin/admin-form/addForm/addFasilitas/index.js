@@ -10,7 +10,6 @@ const AddFasilitasForm = () => {
 	const [image, setImage] = useState('');
 	const [idGedung, setIdGedung] = useState('');
 	const navigate = useNavigate();
-
 	const [validated, setValidated] = useState(false);
 
 	const modalSuccess = () => {
