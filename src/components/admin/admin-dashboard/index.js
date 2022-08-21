@@ -27,7 +27,7 @@ const Dashboard = () => {
 	};
 
 	const fetchApi = async () => {
-		axios
+		await axios
 			.get('http://localhost:8000/gedung')
 			.then((response) => setData(response.data));
 	};

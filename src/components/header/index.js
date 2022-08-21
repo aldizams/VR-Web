@@ -27,7 +27,6 @@ const Header = () => {
 			variant="dark"
 			style={{ backgroundColor: '#135CB2', height: '6em' }}
 		>
-			{/* Masi nyari cara biar tulisannya ditengah dan berjarak pakai display flex*/}
 			<img
 				src={logo}
 				alt="logo"
@@ -45,7 +44,6 @@ const Header = () => {
 							id="collasible-nav-dropdown"
 							className="navLink"
 						>
-							{/* nanti disini bakal map area nama area dari axios*/}
 							{area.map((item) => (
 								<NavDropdown.Item
 									key={item.id}
