@@ -32,6 +32,7 @@ const DashboardFasilitas = () => {
 			.get('http://localhost:8000/fasilitas')
 			.then((response) => setData(response.data));
 	};
+
 	useEffect(() => {
 		fetchApi();
 	}, [refresh]);

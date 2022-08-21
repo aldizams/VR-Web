@@ -7,13 +7,11 @@ import Swal from 'sweetalert2';
 const UpdateFasilitasForm = () => {
 	const [data, setData] = useState([]);
 	const params = useParams();
-
 	const [namaFasilitas, setNamaFasilitas] = useState('');
 	const [penjelasan, setPenjelasan] = useState('');
 	const [image, setImage] = useState('');
 	const [idGedung, setIdGedung] = useState('');
 	const navigate = useNavigate();
-
 	const [validated, setValidated] = useState(false);
 
 	const modalSuccess = () => {
