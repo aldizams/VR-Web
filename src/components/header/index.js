@@ -3,9 +3,13 @@ import { Navbar, Container, NavDropdown, Nav } from 'react-bootstrap';
 import logo from '../../assets/img/logo-decorated.png';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import Cookies from 'js-cookie';
+import { useNavigate } from 'react-router-dom';
 
 const Header = () => {
+	const isLogin = Cookies.get('token');
 	const [area, setArea] = useState([]);
+	const navigate = useNavigate();
 
 	const fetchApi = async () => {
 		axios
@@ -67,6 +71,20 @@ const Header = () => {
 						>
 							<p className="navLink">Daftar Sekarang!</p>
 						</Nav.Link>
+						{isLogin ? (
+							<>
+								<Nav.Link
+									onClick={() => {
+										Cookies.remove('token');
+										navigate('/UPerVR/admin/login');
+									}}
+								>
+									<p className="navLink">Logout</p>
+								</Nav.Link>
+							</>
+						) : (
+							<></>
+						)}
 					</Nav>
 				</Navbar>
 			</Container>

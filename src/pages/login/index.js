@@ -3,11 +3,31 @@ import React, { useState } from 'react';
 import { Button, Card, Form } from 'react-bootstrap';
 import Cookies from 'js-cookie';
 import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 const Login = () => {
 	const [name, setName] = useState('');
 	const [password, setPassword] = useState('');
 	const navigate = useNavigate();
+
+	const modalSuccess = () => {
+		Swal.fire({
+			position: 'center',
+			icon: 'success',
+			title: 'Login Success',
+			showConfirmButton: false,
+			timer: 1300,
+		});
+	};
+	const modalError = () => {
+		Swal.fire({
+			position: 'center',
+			icon: 'error',
+			title: 'Login Failed',
+			showConfirmButton: false,
+			timer: 1300,
+		});
+	};
 
 	const Login = (name, password) => {
 		const bodyJSON = {
@@ -22,9 +42,10 @@ const Login = () => {
 		await Login(name, password)
 			.then((response) => {
 				Cookies.set('token', response.data.access_token);
-				navigate('/UPerVR/admin/dashboard');
+				modalSuccess();
+				setTimeout(() => navigate('/UPerVR/admin/dashboard'), 1300);
 			})
-			.catch((err) => console.log(err));
+			.catch(() => modalError());
 	};
 
 	return (
