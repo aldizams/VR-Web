@@ -158,10 +158,6 @@
 	color: white;
 }
 
-NavDropDown[title] :hover::after {
-	content: attr(title);
-	text-decoration: white;
-}
 
 .CardArea {
 	width: 40rem;
