@@ -2,10 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Navbar, Container, NavDropdown, Nav } from 'react-bootstrap';
 import logo from '../../assets/img/logo-decorated.png';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
-import { useNavigate } from 'react-router-dom';
-
 const Header = () => {
 	const isLogin = Cookies.get('token');
 	const [refresh, setRefresh] = useState(false);
