@@ -79,10 +79,20 @@ const Dashboard = () => {
 							<tr>
 								<td>{item.id}</td>
 								<td>{item.namaGedung}</td>
-								<td>
-									<img src={item.image} />
+								<td style={{ maxWidth: '40rem' }}>
+									<img src={item.image} style={{ maxWidth: '15rem' }} />
 								</td>
-								<td>{item.linkTour}</td>
+								<td
+									style={{
+										whiteSpace: 'wrap',
+										overflow: 'hidden',
+										textOverflow: 'ellips',
+										display: 'table-cell',
+										maxWidth: '20rem',
+									}}
+								>
+									{item.linkTour}
+								</td>
 								<td>{item.penjelasan}</td>
 
 								<td>

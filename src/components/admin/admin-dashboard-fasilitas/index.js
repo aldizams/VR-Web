@@ -54,8 +54,8 @@ const DashboardFasilitas = () => {
 					{data.map((item) => (
 						<tr>
 							<td>{item.id}</td>
-							<td>
-								<img src={item.image} />
+							<td style={{ maxWidth: '40rem' }}>
+								<img src={item.image} style={{ maxWidth: '15rem' }} />
 							</td>
 							<td>{item.idGedung}</td>
 							<td>{item.namaFasilitas}</td>

@@ -12,6 +12,7 @@ import {
 	UpdateFasilitas,
 	UpdateGedung,
 } from './pages';
+import ProtectedRoute from './route/protected-route';
 
 function App() {
 	return (
@@ -21,23 +22,25 @@ function App() {
 				<Route path="/" element={<HomePage />} />
 				<Route path="/Area/:namaGedung/:id" element={<AreaPage />} />
 				<Route path="/UPerVR/admin/login" element={<Login />} />
-				<Route path="/UPerVR/admin/dashboard" element={<AdminPage />} />
-				<Route
-					path="/UPerVR/admin/dashboard/add-gedung"
-					element={<AddGedungPage />}
-				/>
-				<Route
-					path="/UPerVR/admin/dashboard/add-fasilitas"
-					element={<AddFasilitasPage />}
-				/>
-				<Route
-					path="/UPerVR/admin/dashboard/update-fasilitas/:id"
-					element={<UpdateFasilitas />}
-				/>
-				<Route
-					path="/UPerVR/admin/dashboard/update-gedung/:id"
-					element={<UpdateGedung />}
-				/>
+				<Route element={<ProtectedRoute />}>
+					<Route path="/UPerVR/admin/dashboard" element={<AdminPage />} />
+					<Route
+						path="/UPerVR/admin/dashboard/add-gedung"
+						element={<AddGedungPage />}
+					/>
+					<Route
+						path="/UPerVR/admin/dashboard/add-fasilitas"
+						element={<AddFasilitasPage />}
+					/>
+					<Route
+						path="/UPerVR/admin/dashboard/update-fasilitas/:id"
+						element={<UpdateFasilitas />}
+					/>
+					<Route
+						path="/UPerVR/admin/dashboard/update-gedung/:id"
+						element={<UpdateGedung />}
+					/>
+				</Route>
 			</Routes>
 			<Footer />
 		</div>

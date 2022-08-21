@@ -73,14 +73,23 @@ const Header = () => {
 						</Nav.Link>
 						{isLogin ? (
 							<>
-								<Nav.Link
-									onClick={() => {
-										Cookies.remove('token');
-										navigate('/UPerVR/admin/login');
-									}}
+								<NavDropdown
+									title="Admin"
+									id="collasible-nav-dropdown"
+									className="navLink"
 								>
-									<p className="navLink">Logout</p>
-								</Nav.Link>
+									<NavDropdown.Item as={Link} to="/UPerVR/admin/dashboard">
+										<p>Dashboard</p>
+									</NavDropdown.Item>
+									<NavDropdown.Item
+										onClick={() => {
+											Cookies.remove('token');
+											navigate('/UPerVR/admin/login');
+										}}
+									>
+										<p>Logout</p>
+									</NavDropdown.Item>
+								</NavDropdown>
 							</>
 						) : (
 							<></>
