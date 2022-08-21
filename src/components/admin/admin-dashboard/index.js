@@ -4,6 +4,9 @@ import { Button, Table } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 const Dashboard = () => {
+	const [refresh, setRefresh] = useState(false);
+	const [data, setData] = useState([]);
+
 	const deleteData = (item) => {
 		Swal.fire({
 			title: 'Are you sure?',
@@ -16,22 +19,22 @@ const Dashboard = () => {
 		}).then((result) => {
 			if (result.isConfirmed) {
 				axios.delete(`http://localhost:8000/gedung/${item}`).then(() => {
+					setRefresh(!refresh);
 					Swal.fire('Deleted!', 'Your file has been deleted.', 'success');
 				});
 			}
 		});
 	};
 
-	const [data, setData] = useState([]);
-
 	const fetchApi = async () => {
 		axios
 			.get('http://localhost:8000/gedung')
 			.then((response) => setData(response.data));
 	};
+
 	useEffect(() => {
 		fetchApi();
-	}, [data]);
+	}, [refresh]);
 
 	return (
 		<div>
@@ -47,7 +50,7 @@ const Dashboard = () => {
 					</Button>{' '}
 				</div>
 				<div>
-					<b style={{ padding: '20px' }}>Tambah Ruang : </b>
+					<b style={{ padding: '20px' }}>Tambah Fasilitas : </b>
 					<Button
 						variant="primary"
 						as={Link}

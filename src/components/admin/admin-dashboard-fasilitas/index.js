@@ -5,6 +5,9 @@ import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
 const DashboardFasilitas = () => {
+	const [refresh, setRefresh] = useState(false);
+	const [data, setData] = useState([]);
+
 	const deleteData = (item) => {
 		Swal.fire({
 			title: 'Are you sure?',
@@ -17,12 +20,12 @@ const DashboardFasilitas = () => {
 		}).then((result) => {
 			if (result.isConfirmed) {
 				axios.delete(`http://localhost:8000/fasilitas/${item}`).then(() => {
+					setRefresh(!refresh);
 					Swal.fire('Deleted!', 'Your file has been deleted.', 'success');
 				});
 			}
 		});
 	};
-	const [data, setData] = useState([]);
 
 	const fetchApi = async () => {
 		axios
@@ -31,7 +34,7 @@ const DashboardFasilitas = () => {
 	};
 	useEffect(() => {
 		fetchApi();
-	}, [data]);
+	}, [refresh]);
 
 	return (
 		<div>

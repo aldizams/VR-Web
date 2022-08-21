@@ -1,69 +1,61 @@
-// import axios from 'axios';
+import axios from 'axios';
 import React, { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
 const AddFasilitasForm = () => {
+	const [namaFasilitas, setNamaFasilitas] = useState('');
+	const [penjelasan, setPenjelasan] = useState('');
+	const [image, setImage] = useState('');
+	const [idGedung, setIdGedung] = useState('');
+	const navigate = useNavigate();
+
+	const [validated, setValidated] = useState(false);
+
 	const modalSuccess = () => {
 		Swal.fire({
+			position: 'center',
 			icon: 'success',
-			title: 'Success',
+			title: 'Add Fasilitas Success',
+			showConfirmButton: false,
+			timer: 1300,
+		});
+	};
+	const modalError = () => {
+		Swal.fire({
+			position: 'center',
+			icon: 'error',
+			title: 'Add Fasilitas Failed',
+			showConfirmButton: false,
+			timer: 1300,
 		});
 	};
 
-	const [validated, setValidated] = useState(false);
-	// const [data, setData] = useState({
-	// 	idGedung: '',
-	// 	namaFasilitas: '',
-	// 	penjelasan: '',
-	// 	image: '',
-	// });
+	const Submit = (namaFasilitas, penjelasan, image, idGedung) => {
+		const bodyJSON = {
+			idGedung: idGedung,
+			namaFasilitas: namaFasilitas,
+			penjelasan: penjelasan,
+			image: image,
+		};
+		return axios.post('http://localhost:8000/fasilitas', bodyJSON);
+	};
 
-	// // const handleChange = (event) => {
-	// // 	setformValue({
-	// // 		...formValue,
-	// // 		[event.target.name]: event.target.value,
-	// // 	});
-	// // };
-
-	// const handleChange = (e) => {
-	// 	const value = e.target.value;
-	// 	setData({
-	// 		...data,
-	// 		[e.target.name]: value,
-	// 	});
-	// };
-
-	const handleSubmit = (event) => {
+	const handleSubmit = async (event) => {
 		const form = event.currentTarget;
 		if (form.checkValidity() === false) {
 			event.preventDefault();
 			event.stopPropagation();
-		}
-
-		// 	event.preventDefault();
-		// 	const dataGedung = {
-		// 		idGedung: data.idGedung,
-		// 		namaFasilitas: data.namaFasilitas,
-		// 		penjelasan: data.penjelasan,
-		// 		image: data.image,
-		// 	};
-
-		// 	// store the states in the form data
-		// 	// const FormData = new FormData();
-		// 	// FormData.append('idGedung', formValue.idGedung);
-		// 	// FormData.append('namaFasilitas', formValue.namaFasilitas);
-		// 	// FormData.append('penjelasan', formValue.penjelasan);
-		// 	// FormData.append('image', formValue.image);
-
-		// 	// make axios post request
-		// 	axios.post(`http://localhost:8000/fasilitas`, dataGedung).then(() => {
-		// 		modalSuccess();
-		// 	});
-		setValidated(true);
-		if (validated == true) {
-			modalSuccess();
+		} else {
+			setValidated(true);
+			event.preventDefault();
+			await Submit(namaFasilitas, penjelasan, image, idGedung)
+				.then(() => {
+					modalSuccess();
+					setTimeout(() => navigate('/UPerVR/admin/dashboard'), 1300);
+				})
+				.catch(() => modalError());
 		}
 	};
 
@@ -79,9 +71,8 @@ const AddFasilitasForm = () => {
 					<Form.Label style={{ float: 'left' }}>Nama Fasilitas :</Form.Label>
 					<Form.Control
 						placeholder="fasilitas"
-						// onChange={handleChange}
-						// value={data.namaFasilitas}
-						// defaultValue={formValue.namaFasilitas}
+						onChange={(e) => setNamaFasilitas(e.target.value)}
+						value={namaFasilitas}
 						required
 					/>
 					<Form.Control.Feedback type="invalid">
@@ -95,8 +86,8 @@ const AddFasilitasForm = () => {
 					</Form.Label>
 					<Form.Control
 						placeholder="ini adalah ..."
-						// value={data.penjelasan}
-						// onChange={handleChange}
+						value={penjelasan}
+						onChange={(e) => setPenjelasan(e.target.value)}
 						required
 					/>
 					<Form.Control.Feedback type="invalid">
@@ -110,8 +101,8 @@ const AddFasilitasForm = () => {
 					</Form.Label>
 					<Form.Control
 						placeholder="1,2,3,4,..."
-						// value={data.idGedung}
-						// onChange={handleChange}
+						value={idGedung}
+						onChange={(e) => setIdGedung(e.target.value)}
 						required
 					/>
 					<Form.Control.Feedback type="invalid">
@@ -122,10 +113,9 @@ const AddFasilitasForm = () => {
 				<Form.Group className="mb-3" controlId="validationGambarGedung">
 					<Form.Label style={{ float: 'left' }}>Gambar Fasilitas:</Form.Label>
 					<Form.Control
-						type="file"
-						// defaultValue={data.image}
-						// value={data.image}
-						// onChange={handleChange}
+						type="text"
+						value={image}
+						onChange={(e) => setImage(e.target.value)}
 						required
 					/>
 					<Form.Control.Feedback type="invalid">
@@ -136,13 +126,7 @@ const AddFasilitasForm = () => {
 					className="addGroup"
 					style={{ justifyContent: 'space-evenly', paddingTop: '25px' }}
 				>
-					<Button
-						variant="primary"
-						type="submit"
-						// onClick={() => {
-						// 	modalSuccess();
-						// }}
-					>
+					<Button variant="primary" type="submit">
 						ADD
 					</Button>{' '}
 					<Button variant="danger" as={Link} to={`/UPerVR/admin/dashboard`}>

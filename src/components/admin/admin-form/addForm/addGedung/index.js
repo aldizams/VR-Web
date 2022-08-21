@@ -1,27 +1,60 @@
+import axios from 'axios';
 import React, { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
 const AddGedungForm = () => {
+	const [namaGedung, setNamaGedung] = useState('');
+	const [penjelasan, setPenjelasan] = useState('');
+	const [image, setImage] = useState('');
+	const [linkTour, setLinkTour] = useState('');
+	const navigate = useNavigate();
+
 	const modalSuccess = () => {
 		Swal.fire({
+			position: 'center',
 			icon: 'success',
-			title: 'Success',
+			title: 'Add Gedung Success',
+			showConfirmButton: false,
+			timer: 1300,
 		});
+	};
+	const modalError = () => {
+		Swal.fire({
+			position: 'center',
+			icon: 'error',
+			title: 'Add Gedung Failed',
+			showConfirmButton: false,
+			timer: 1300,
+		});
+	};
+
+	const Submit = (namaGedung, penjelasan, image, linkTour) => {
+		const bodyJSON = {
+			namaGedung: namaGedung,
+			penjelasan: penjelasan,
+			image: image,
+			linkTour: linkTour,
+		};
+		return axios.post('http://localhost:8000/gedung', bodyJSON);
 	};
 	const [validated, setValidated] = useState(false);
 
-	const handleSubmit = (event) => {
+	const handleSubmit = async (event) => {
 		const form = event.currentTarget;
 		if (form.checkValidity() === false) {
 			event.preventDefault();
 			event.stopPropagation();
-		}
-
-		setValidated(true);
-		if (validated == true) {
-			modalSuccess();
+		} else {
+			setValidated(true);
+			event.preventDefault();
+			await Submit(namaGedung, penjelasan, image, linkTour)
+				.then(() => {
+					modalSuccess();
+					setTimeout(() => navigate('/UPerVR/admin/dashboard'), 1300);
+				})
+				.catch(() => modalError());
 		}
 	};
 
@@ -39,6 +72,8 @@ const AddGedungForm = () => {
 						placeholder="tempat"
 						aria-label="tempat"
 						aria-describedby="basic-addon2"
+						value={namaGedung}
+						onChange={(e) => setNamaGedung(e.target.value)}
 						required
 					/>
 					<Form.Control.Feedback type="invalid">
@@ -52,6 +87,8 @@ const AddGedungForm = () => {
 						placeholder="tempat ini digunakan untuk ..."
 						aria-label="tempat"
 						aria-describedby="basic-addon2"
+						value={penjelasan}
+						onChange={(e) => setPenjelasan(e.target.value)}
 						required
 					/>
 					<Form.Control.Feedback type="invalid">
@@ -65,6 +102,8 @@ const AddGedungForm = () => {
 						placeholder="kuula.com"
 						aria-label="tempat"
 						aria-describedby="basic-addon2"
+						value={linkTour}
+						onChange={(e) => setLinkTour(e.target.value)}
 						required
 					/>
 					<Form.Control.Feedback type="invalid">
@@ -74,7 +113,12 @@ const AddGedungForm = () => {
 
 				<Form.Group className="mb-3" controlId="validationGambarGedung">
 					<Form.Label style={{ float: 'left' }}>Gambar Gedung :</Form.Label>
-					<Form.Control type="file" required />{' '}
+					<Form.Control
+						type="text"
+						required
+						value={image}
+						onChange={(e) => setImage(e.target.value)}
+					/>{' '}
 					<Form.Control.Feedback type="invalid">
 						Gambar Gedung Kosong!
 					</Form.Control.Feedback>
@@ -83,13 +127,7 @@ const AddGedungForm = () => {
 					className="addGroup"
 					style={{ justifyContent: 'space-evenly', paddingTop: '25px' }}
 				>
-					<Button
-						variant="primary"
-						type="submit"
-						// onClick={() => {
-						// 	handleSubmit();
-						// }}
-					>
+					<Button variant="primary" type="submit">
 						ADD
 					</Button>{' '}
 					<Button variant="danger" as={Link} to={`/UPerVR/admin/dashboard`}>
@@ -97,17 +135,6 @@ const AddGedungForm = () => {
 					</Button>{' '}
 				</div>
 			</Form>
-
-			{/* 
-			<div id="dynamicCheck">
-				<input
-					type="button"
-					value="Create Element"
-					onClick={createNewElement()}
-				/>
-			</div>
-
-			<div id="newElementId">New inputbox goes here:</div> */}
 		</div>
 	);
 };
