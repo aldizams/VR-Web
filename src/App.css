@@ -151,13 +151,16 @@
 	padding-left: 380px;
 }
 .navLink {
-	color: white;
-	padding-left: 50px;
+	margin-left: 50px;
 	text-align: center;
 }
-.navLink [title] :active:hover::after::before {
-	content: attr(title);
+.navLink-p {
 	color: white;
+}
+
+NavDropDown[title] :hover::after {
+	content: attr(title);
+	text-decoration: white;
 }
 
 .CardArea {

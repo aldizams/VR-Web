@@ -36,8 +36,8 @@ const Header = () => {
 			<Container fluid>
 				<Navbar id="navbar-nav" style={{ position: 'relative' }}>
 					<Nav className="me-auto navStyle">
-						<Nav.Link as={Link} to="/">
-							<p className="navLink">Home</p>
+						<Nav.Link as={Link} to="/" className="navLink">
+							<p className="navLink-p">Home</p>
 						</Nav.Link>
 
 						<NavDropdown
@@ -62,14 +62,16 @@ const Header = () => {
 						<Nav.Link
 							href="https://universitaspertamina.ac.id/"
 							target="_blank"
+							className="navLink"
 						>
-							<p className="navLink">UPER</p>
+							<p className="navLink-p">UPER</p>
 						</Nav.Link>
 						<Nav.Link
 							href="https://pmb.universitaspertamina.ac.id/"
 							target="_blank"
+							className="navLink"
 						>
-							<p className="navLink">Daftar Sekarang!</p>
+							<p className="navLink-p">Daftar Sekarang!</p>
 						</Nav.Link>
 						{isLogin ? (
 							<>

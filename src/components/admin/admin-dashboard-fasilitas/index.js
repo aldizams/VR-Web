@@ -37,7 +37,7 @@ const DashboardFasilitas = () => {
 	}, [refresh]);
 
 	return (
-		<div>
+		<div style={{ paddingTop: '30px' }}>
 			<div>
 				<h2>Tabel Fasilitas</h2>
 			</div>
