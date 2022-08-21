@@ -13,7 +13,7 @@ import bg from '../../assets/img/bg-sc.png';
 const AreaPage = () => {
 	const [gedung, setGedung] = useState([]);
 	const [fasilitas, setFasilitas] = useState([]);
-	var hasil = [];
+	let hasil = [];
 	const params = useParams();
 
 	const fetchApi = async () => {
@@ -34,10 +34,6 @@ const AreaPage = () => {
 		});
 	};
 
-	// console.log(fasilitas);
-	// console.log(params.namaGedung);
-	// console.log(gedung.namaGedung);
-	// console.log(hasilFilter);
 	useEffect(() => {
 		fetchApi();
 		window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
