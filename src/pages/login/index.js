@@ -41,7 +41,7 @@ const Login = () => {
 		event.preventDefault();
 		await Login(name, password)
 			.then((response) => {
-				Cookies.set('token', response.data.access_token);
+				Cookies.set('token', response.data.access_token, { expires: 3 });
 				modalSuccess();
 				setTimeout(() => navigate('/UPerVR/admin/dashboard'), 1300);
 			})
