@@ -31,6 +31,7 @@ const Dashboard = () => {
 			.get('http://localhost:8000/gedung')
 			.then((response) => setData(response.data));
 	};
+
 	useEffect(() => {
 		fetchApi();
 	}, [refresh]);
