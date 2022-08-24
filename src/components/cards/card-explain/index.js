@@ -26,7 +26,6 @@ const ExplainCard = () => {
 					borderRadius: '20px',
 				}}
 			>
-				{/*Perlu benerin border radius, sama tulisan virtual tournya, dibikin komponen2 aja yaaa */}
 				<Card.Body
 					style={{
 						color: 'white',
@@ -35,12 +34,11 @@ const ExplainCard = () => {
 				>
 					<p>
 						Virtual Tour merupakan perjalanan atau tamasya di lingkungan maya.
-						Pada Virtual Campus Tour UPER ini, kalian akan berada di Kampus
-						Universitas Pertamina yang berada di Jl. Teuku Nyak Arief, Simprug,
-						Jakarta Selatan secara virtual. Kalian dapat berkeliling kampus
-						Universitas Pertamina dengan mengikuti petunjuk atau tutorial yang
-						sudah disediakan dibawah. Selamat menjelajahi Kampus Universitas
-						Pertamina!
+						Pada Virtual Campus Tour UPER ini berada di Kampus Universitas
+						Pertamina yang berada di Jl. Teuku Nyak Arief, Simprug, Jakarta
+						Selatan secara virtual. Saatnya berkeliling kampus Universitas
+						Pertamina dengan mengikuti petunjuk atau tutorial yang sudah
+						tersedia. Selamat menjelajahi Kampus Universitas Pertamina!
 					</p>
 				</Card.Body>
 			</Card>
