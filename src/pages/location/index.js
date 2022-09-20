@@ -6,9 +6,9 @@ import {
 	FasilitasCard,
 } from '../../components';
 import { Container } from 'react-bootstrap';
-import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import bg from '../../assets/img/bg-sc.png';
+import { getAllFasilitas, getGedungById } from '../../services/api';
 
 const AreaPage = () => {
 	const [gedung, setGedung] = useState([]);
@@ -16,14 +16,14 @@ const AreaPage = () => {
 	let hasil = [];
 	const params = useParams();
 
-	const fetchApi = async () => {
-		axios.get(`http://localhost:8000/gedung/${params.id}`).then((response) => {
+	const fetchApi = async (id) => {
+		getGedungById(id).then((response) => {
 			setGedung(response.data);
 		});
 
-		axios.get(`http://localhost:8000/fasilitas/`).then((response) => {
-			console.log(params.id);
-			console.log(response.data.length);
+		getAllFasilitas().then((response) => {
+			// console.log(params.id);
+			// console.log(response.data.length);
 			for (let i = 0; i < response.data.length; i++) {
 				if (params.id == response.data[i].idGedung) {
 					console.log(response.data[i].idGedung);
@@ -35,7 +35,7 @@ const AreaPage = () => {
 	};
 
 	useEffect(() => {
-		fetchApi();
+		fetchApi(params.id);
 		window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
 	}, [params]);
 

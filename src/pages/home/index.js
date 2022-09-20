@@ -1,15 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Container } from 'react-bootstrap';
-import axios from 'axios';
 import { AreaCard, TutorialCard, ExplainCard, VRTour } from '../../components';
+import { getAllGedung } from '../../services/api';
 
 const HomePage = () => {
 	const [area, setArea] = useState([]);
 
 	const fetchApi = async () => {
-		axios
-			.get('http://localhost:8000/gedung')
-			.then((response) => setArea(response.data));
+		getAllGedung().then((response) => setArea(response.data));
 	};
 	useEffect(() => {
 		fetchApi();

@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import { addFasilitas } from '../../../../../services/api';
 
 const AddFasilitasForm = () => {
 	const [namaFasilitas, setNamaFasilitas] = useState('');
@@ -38,7 +39,7 @@ const AddFasilitasForm = () => {
 			penjelasan: penjelasan,
 			image: image,
 		};
-		return axios.post('http://localhost:8000/fasilitas', bodyJSON);
+		return addFasilitas(bodyJSON);
 	};
 
 	const handleSubmit = async (event) => {

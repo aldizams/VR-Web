@@ -3,12 +3,13 @@ import React, { useState, useEffect } from 'react';
 import { Button, Table } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import { deleteFasilitas, getAllFasilitas } from '../../../services/api';
 
 const DashboardFasilitas = () => {
 	const [refresh, setRefresh] = useState(false);
 	const [data, setData] = useState([]);
 
-	const deleteData = (item) => {
+	const deleteData = (id) => {
 		Swal.fire({
 			title: 'Are you sure?',
 			text: "You won't be able to revert this!",
@@ -19,7 +20,7 @@ const DashboardFasilitas = () => {
 			confirmButtonText: 'Yes, delete it!',
 		}).then((result) => {
 			if (result.isConfirmed) {
-				axios.delete(`http://localhost:8000/fasilitas/${item}`).then(() => {
+				deleteFasilitas(id).then(() => {
 					setRefresh(!refresh);
 					Swal.fire('Deleted!', 'Your file has been deleted.', 'success');
 				});
@@ -28,9 +29,7 @@ const DashboardFasilitas = () => {
 	};
 
 	const fetchApi = async () => {
-		axios
-			.get('http://localhost:8000/fasilitas')
-			.then((response) => setData(response.data));
+		getAllFasilitas().then((response) => setData(response.data));
 	};
 
 	useEffect(() => {

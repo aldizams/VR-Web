@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import { addGedung } from '../../../../../services/api';
 
 const AddGedungForm = () => {
 	const [namaGedung, setNamaGedung] = useState('');
@@ -38,7 +39,7 @@ const AddGedungForm = () => {
 			image: image,
 			linkTour: linkTour,
 		};
-		return axios.post('http://localhost:8000/gedung', bodyJSON);
+		return addGedung(bodyJSON);
 	};
 
 	const handleSubmit = async (event) => {

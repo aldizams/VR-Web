@@ -1,13 +1,13 @@
-import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { Button, Table } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import { deleteGedung, getAllGedung } from '../../../services/api';
 const Dashboard = () => {
 	const [refresh, setRefresh] = useState(false);
 	const [data, setData] = useState([]);
 
-	const deleteData = (item) => {
+	const deleteData = (id) => {
 		Swal.fire({
 			title: 'Are you sure?',
 			text: "You won't be able to revert this!",
@@ -18,7 +18,7 @@ const Dashboard = () => {
 			confirmButtonText: 'Yes, delete it!',
 		}).then((result) => {
 			if (result.isConfirmed) {
-				axios.delete(`http://localhost:8000/gedung/${item}`).then(() => {
+				deleteGedung(id).then(() => {
 					setRefresh(!refresh);
 					Swal.fire('Deleted!', 'Your file has been deleted.', 'success');
 				});
@@ -27,9 +27,7 @@ const Dashboard = () => {
 	};
 
 	const fetchApi = async () => {
-		await axios
-			.get('http://localhost:8000/gedung')
-			.then((response) => setData(response.data));
+		await getAllGedung().then((response) => setData(response.data));
 	};
 
 	useEffect(() => {

@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Navbar, Container, NavDropdown, Nav } from 'react-bootstrap';
 import logo from '../../assets/img/logo-decorated.png';
-import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
+import { getAllGedung } from '../../services/api';
 const Header = () => {
 	const isLogin = Cookies.get('token');
 	const [refresh, setRefresh] = useState(false);
@@ -11,9 +11,7 @@ const Header = () => {
 	const navigate = useNavigate();
 
 	const fetchApi = async () => {
-		await axios
-			.get('http://localhost:8000/gedung')
-			.then((response) => setArea(response.data));
+		await getAllGedung().then((response) => setArea(response.data));
 	};
 	useEffect(() => {
 		fetchApi();

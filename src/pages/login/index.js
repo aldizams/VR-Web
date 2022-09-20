@@ -1,9 +1,9 @@
-import axios from 'axios';
 import React, { useState } from 'react';
 import { Button, Card, Form } from 'react-bootstrap';
 import Cookies from 'js-cookie';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import { login } from '../../services/api';
 
 const Login = () => {
 	const [name, setName] = useState('');
@@ -34,7 +34,7 @@ const Login = () => {
 			name: name,
 			password: password,
 		};
-		return axios.post('http://localhost:8000/auth/login', bodyJSON);
+		return login(bodyJSON);
 	};
 
 	const handleSubmit = async (event) => {

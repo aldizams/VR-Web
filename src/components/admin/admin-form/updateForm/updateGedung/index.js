@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import { getGedungById, updateGedung } from '../../../../../services/api';
 
 const UpdateGedungForm = () => {
 	const [data, setData] = useState([]);
@@ -40,7 +41,7 @@ const UpdateGedungForm = () => {
 			image: image,
 			linkTour: linkTour,
 		};
-		return axios.put(`http://localhost:8000/gedung/${params.id}`, bodyJSON);
+		return updateGedung(params.id, bodyJSON);
 	};
 
 	const handleSubmit = async (event) => {
@@ -61,9 +62,7 @@ const UpdateGedungForm = () => {
 	};
 
 	const fetchApi = async () => {
-		axios
-			.get(`http://localhost:8000/gedung/${params.id}`)
-			.then((response) => setData(response.data));
+		getGedungById(params.id).then((response) => setData(response.data));
 	};
 
 	useEffect(() => {

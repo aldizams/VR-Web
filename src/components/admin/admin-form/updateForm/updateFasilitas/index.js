@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import { getFasilitasById, updateFasilitas } from '../../../../../services/api';
 
 const UpdateFasilitasForm = () => {
 	const [data, setData] = useState([]);
@@ -40,7 +41,7 @@ const UpdateFasilitasForm = () => {
 			penjelasan: penjelasan,
 			image: image,
 		};
-		return axios.put(`http://localhost:8000/fasilitas/${params.id}`, bodyJSON);
+		return updateFasilitas(params.id, bodyJSON);
 	};
 
 	const handleSubmit = async (event) => {
@@ -61,9 +62,7 @@ const UpdateFasilitasForm = () => {
 	};
 
 	const fetchApi = async () => {
-		axios
-			.get(`http://localhost:8000/fasilitas/${params.id}`)
-			.then((response) => setData(response.data));
+		getFasilitasById(params.id).then((response) => setData(response.data));
 	};
 
 	useEffect(() => {
