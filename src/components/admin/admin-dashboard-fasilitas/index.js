@@ -45,9 +45,9 @@ const DashboardFasilitas = () => {
 				<thead>
 					<tr>
 						<th>id</th>
-						<th>Gammbar</th>
-						<th>id Gedung</th>
 						<th>Nama Fasilitas</th>
+						<th>Gambar</th>
+						<th>id Gedung</th>
 						<th>Penjelasan</th>
 						<th>Update</th>
 						<th>Delete</th>
@@ -56,12 +56,12 @@ const DashboardFasilitas = () => {
 				<tbody>
 					{data.map((item) => (
 						<tr>
-							<td>{item.id}</td>
+							<td>{item.idFasilitas}</td>
+							<td>{item.namaFasilitas}</td>
 							<td style={{ maxWidth: '40rem' }}>
 								<img src={item.image} style={{ maxWidth: '15rem' }} />
 							</td>
 							<td>{item.idGedung}</td>
-							<td>{item.namaFasilitas}</td>
 
 							<td>{item.penjelasan}</td>
 
@@ -70,8 +70,8 @@ const DashboardFasilitas = () => {
 								<Button
 									variant="warning"
 									as={Link}
-									to={`/UPerVR/admin/dashboard/update-fasilitas/${item.id}`}
-									id={item.id}
+									to={`/UPerVR/admin/dashboard/update-fasilitas/${item.idFasilitas}`}
+									id={item.idFasilitas}
 								>
 									Update
 								</Button>{' '}
@@ -81,7 +81,7 @@ const DashboardFasilitas = () => {
 								<Button
 									variant="danger"
 									onClick={() => {
-										deleteData(item.id);
+										deleteData(item.idFasilitas);
 									}}
 								>
 									Delete

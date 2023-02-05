@@ -78,7 +78,7 @@ const Dashboard = () => {
 					<tbody>
 						{data.map((item) => (
 							<tr>
-								<td>{item.id}</td>
+								<td>{item.idGedung}</td>
 								<td>{item.namaGedung}</td>
 								<td style={{ maxWidth: '40rem' }}>
 									<img src={item.image} style={{ maxWidth: '15rem' }} />
@@ -101,8 +101,8 @@ const Dashboard = () => {
 									<Button
 										variant="warning"
 										as={Link}
-										to={`/UPerVR/admin/dashboard/update-gedung/${item.id}`}
-										id={item.id}
+										to={`/UPerVR/admin/dashboard/update-gedung/${item.idGedung}`}
+										id={item.idGedung}
 									>
 										Update
 									</Button>{' '}
@@ -112,7 +112,7 @@ const Dashboard = () => {
 									<Button
 										variant="danger"
 										onClick={() => {
-											deleteData(item.id);
+											deleteData(item.idGedung);
 										}}
 									>
 										Delete

@@ -81,7 +81,7 @@ const UpdateFasilitasForm = () => {
 				</h3>
 			</div>
 			<Form noValidate validated={validated} onSubmit={handleSubmit}>
-				<Form.Group className="mb-3" controlId="validationNamaGedung">
+				<Form.Group className="mb-3" controlId="validationnamaGedung">
 					<Form.Label style={{ float: 'left' }}>Nama Fasilitas :</Form.Label>
 					<Form.Control
 						placeholder="fasilitas"

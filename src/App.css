@@ -200,9 +200,12 @@
 .VRCard {
 	margin: 0 0 30px 0;
 	border-radius: 20px;
-	height: 680px;
-	width: 100%;
+	height: 600px !important;
 }
+.carousel-vr {
+	width: 1500px;
+}
+
 @media screen and (max-height: 992px) {
 	.VRCard {
 		margin: 0 0 30px 0;

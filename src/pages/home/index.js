@@ -49,10 +49,10 @@ const HomePage = () => {
 					<div className="areaCardDiv">
 						{area.map((item) => (
 							<AreaCard
-								key={item.id}
+								key={item.idGedung}
 								bg={item.image}
 								name={item.namaGedung}
-								id={item.id}
+								id={item.idGedung}
 							/>
 						))}
 					</div>

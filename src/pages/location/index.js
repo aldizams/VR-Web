@@ -25,17 +25,18 @@ const AreaPage = () => {
 			// console.log(params.id);
 			// console.log(response.data.length);
 			for (let i = 0; i < response.data.length; i++) {
-				if (params.id == response.data[i].idGedung) {
+				if (params.idGedung == response.data[i].idGedung) {
 					console.log(response.data[i].idGedung);
 					hasil.push(response.data[i]);
 				}
 			}
 			setFasilitas(hasil);
 		});
+		console.log(gedung.data);
 	};
 
 	useEffect(() => {
-		fetchApi(params.id);
+		fetchApi(params.idGedung);
 		window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
 	}, [params]);
 
@@ -81,7 +82,7 @@ const AreaPage = () => {
 							nama={item.namaFasilitas}
 							exp={item.penjelasan}
 							img={item.image}
-							id={item.id}
+							id={item.idFasilitas}
 							index={index}
 						/>
 					))}

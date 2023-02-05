@@ -41,7 +41,7 @@ const UpdateGedungForm = () => {
 			image: image,
 			linkTour: linkTour,
 		};
-		return updateGedung(params.id, bodyJSON);
+		return updateGedung(params.idGedung, bodyJSON);
 	};
 
 	const handleSubmit = async (event) => {
@@ -62,16 +62,16 @@ const UpdateGedungForm = () => {
 	};
 
 	const fetchApi = async () => {
-		getGedungById(params.id).then((response) => setData(response.data));
+		getGedungById(params.idGedung).then((response) => setData(response.data));
 	};
 
 	useEffect(() => {
 		fetchApi();
 		setNamaGedung(data.namaGedung);
 		setPenjelasan(data.penjelasan);
-		setImage(data.image);
+		setImage(data.gambar);
 		setLinkTour(data.linkTour);
-	}, [data.id]);
+	}, [data.idGedung]);
 
 	return (
 		<div style={{ padding: '150px 0' }}>
@@ -81,7 +81,7 @@ const UpdateGedungForm = () => {
 				</h3>
 			</div>
 			<Form noValidate validated={validated} onSubmit={handleSubmit}>
-				<Form.Group className="mb-3" controlId="validationNamaGedung">
+				<Form.Group className="mb-3" controlId="validationnamaGedung">
 					<Form.Label style={{ float: 'left' }}>Nama Gedung :</Form.Label>
 					<Form.Control
 						placeholder="tempat"
