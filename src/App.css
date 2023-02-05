@@ -205,6 +205,8 @@
 .carousel-vr {
 	width: 1500px;
 }
+.carousel-main {
+}
 
 @media screen and (max-height: 992px) {
 	.VRCard {

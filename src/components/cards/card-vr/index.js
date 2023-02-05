@@ -3,8 +3,8 @@ import { Carousel } from 'react-bootstrap';
 
 const VRTour = (props) => {
 	return (
-		<>
-			<Carousel fade>
+		<div>
+			<Carousel fade className="carousel-main">
 				<Carousel.Item className="carousel-vr">
 					<iframe
 						src={props.link}
@@ -36,7 +36,7 @@ const VRTour = (props) => {
 					></iframe>
 				</Carousel.Item>
 			</Carousel>
-		</>
+		</div>
 	);
 };
 
