@@ -205,7 +205,14 @@
 .carousel-vr {
 	width: 1500px;
 }
-.carousel-main {
+.carousel-control-next,
+.carousel-control-prev {
+	height: 10%;
+	width: 20%;
+	margin-top: 290px;
+}
+.carousel-indicators {
+	display: none;
 }
 
 @media screen and (max-height: 992px) {
