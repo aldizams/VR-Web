@@ -91,13 +91,14 @@
 }
 
 .cardTutorial {
-	width: 700rem;
+	width: 750rem;
 	height: 19rem;
 	border: none;
 	margin: 25px 0 25px 0;
 	border-radius: 20px;
 	z-index: 999;
 }
+
 .cardBodyTutorial {
 	background-image: url(../src/assets/img/bg-sc.png);
 	background-repeat: no-repeat;
