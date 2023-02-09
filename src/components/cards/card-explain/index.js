@@ -33,13 +33,18 @@ const ExplainCard = () => {
 					}}
 				>
 					<p>
-						Virtual Tour merupakan perjalanan atau tamasya di lingkungan maya.
-						Pada Virtual Campus Tour UPER ini berada di Kampus Universitas
-						Pertamina yang berada di Jl. Teuku Nyak Arief, Simprug, Jakarta
-						Selatan secara virtual. Saatnya berkeliling kampus Universitas
-						Pertamina dengan mengikuti petunjuk atau tutorial yang sudah
-						tersedia. Selamat menjelajahi Kampus Universitas Pertamina!
+						Selamat datang di Universitas Pertamina. Kamu dapat menggunakan
+						mouse atau langsung menggunakan tangan. Geser layar untuk melihat
+						sekitar. Gunakan klik kiri mouse untuk melihat-lihat. Tekan secara
+						bersamaan untuk memperbesar dan memperkecil. <br />
+						Universitas Pertamina merupakan kampus swasta non-kedinasan yang
+						berada di bawah naungan Yayasan Pertamina. Universitas Pertamina
+						didirikan pada tahun 2016. Universitas Pertamina saat ini memiliki 6
+						Fakultas dan 15 Program Studi strata 1 dan berlokasi di Jl. Teuku
+						Nyak Arief, RT.7/RW.8, Simprug, Kec. Kby. Lama, Kota Jakarta
+						Selatan.
 					</p>
+					<p></p>
 				</Card.Body>
 			</Card>
 		</div>
