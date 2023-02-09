@@ -221,6 +221,12 @@
 }
 
 @media screen and (max-height: 992px) {
+	.VRCard {
+		margin: 0 0 30px 0;
+		border-radius: 20px;
+		height: 650px !important;
+		width: 1200px;
+	}
 	.areaCardDiv {
 		display: flex;
 		flex-wrap: wrap;
