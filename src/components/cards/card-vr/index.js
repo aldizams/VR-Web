@@ -57,7 +57,7 @@ const VRTour = (props) => {
 				</button>
 			</div> */}
 			<iframe
-				src="https://kuula.co/share/collection/7vB1h?logo=1&card=1&info=1&logosize=40&fs=1&vr=1&zoom=1&sd=1&initload=0&autorotate=0.3&autopalt=1&thumbs=0&alpha=0.60"
+				src="https://kuula.co/share/collection/7vB1h?logo=1&card=1&info=1&logosize=40&fs=1&vr=1&zoom=1&sd=1&initload=0&autorotate=0.3&autop=50&autopalt=1&thumbs=0&alpha=0.60"
 				allow="xr-spatial-tracking; gyroscope; accelerometer"
 				allowFullScreen="true"
 				frameBorder={'0'}
