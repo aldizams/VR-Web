@@ -56,7 +56,15 @@ const VRTour = (props) => {
 					<span class="visually-hidden">Next</span>
 				</button>
 			</div> */}
-			<Carousel fade className="carousel-main">
+			<iframe
+				src="https://kuula.co/share/collection/7vB1h?logo=1&card=1&info=1&fs=1&vr=1&zoom=1&sd=1&initload=0&autop=5&thumbs=0&alpha=0.60"
+				allow="xr-spatial-tracking; gyroscope; accelerometer"
+				allowFullScreen="true"
+				frameBorder={'0'}
+				className="VRCard"
+				scrolling="no"
+			></iframe>
+			{/* <Carousel fade className="carousel-main">
 				<Carousel.Item className="carousel-vr">
 					<iframe
 						src="https://kuula.co/share/collection/7vB1h?logo=0&info=0&fs=1&vr=1&sd=1&initload=0&thumbs=1"
@@ -79,7 +87,7 @@ const VRTour = (props) => {
 				</Carousel.Item>
 				<Carousel.Item className="carousel-vr">
 					<iframe
-						src="https://kuula.co/share/collection/7F5Cv?logo=0&info=0&fs=1&vr=1&sd=1&initload=0&thumbs=1"
+						src="https://kuula.co/share/collection/7F5Cv?logo=1&info=1&fs=1&vr=1&zoom=1&sd=1&initload=0&thumbs=3"
 						allow="xr-spatial-tracking; gyroscope; accelerometer"
 						allowFullScreen="true"
 						frameBorder={'0'}
@@ -127,7 +135,7 @@ const VRTour = (props) => {
 						scrolling="no"
 					></iframe>
 				</Carousel.Item>
-			</Carousel>
+			</Carousel> */}
 		</div>
 	);
 };
