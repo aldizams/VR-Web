@@ -59,7 +59,7 @@ const VRTour = (props) => {
 			<Carousel fade className="carousel-main">
 				<Carousel.Item className="carousel-vr">
 					<iframe
-						src={props.link}
+						src="https://kuula.co/share/collection/7vB1h?logo=0&info=0&fs=1&vr=1&sd=1&initload=0&thumbs=1"
 						allow="xr-spatial-tracking; gyroscope; accelerometer"
 						allowFullScreen="true"
 						frameBorder={'0'}
@@ -69,7 +69,7 @@ const VRTour = (props) => {
 				</Carousel.Item>
 				<Carousel.Item className="carousel-vr">
 					<iframe
-						src={props.link}
+						src="https://kuula.co/share/collection/7F5CF?logo=0&info=0&fs=1&vr=1&sd=1&initload=0&thumbs=1"
 						allow="xr-spatial-tracking; gyroscope; accelerometer"
 						allowFullScreen="true"
 						frameBorder={'0'}
@@ -79,7 +79,47 @@ const VRTour = (props) => {
 				</Carousel.Item>
 				<Carousel.Item className="carousel-vr">
 					<iframe
-						src={props.link}
+						src="https://kuula.co/share/collection/7F5Cv?logo=0&info=0&fs=1&vr=1&sd=1&initload=0&thumbs=1"
+						allow="xr-spatial-tracking; gyroscope; accelerometer"
+						allowFullScreen="true"
+						frameBorder={'0'}
+						className="VRCard"
+						scrolling="no"
+					></iframe>
+				</Carousel.Item>
+				<Carousel.Item className="carousel-vr">
+					<iframe
+						src="https://kuula.co/share/collection/7F5C9?logo=0&info=0&fs=1&vr=1&sd=1&initload=0&thumbs=1"
+						allow="xr-spatial-tracking; gyroscope; accelerometer"
+						allowFullScreen="true"
+						frameBorder={'0'}
+						className="VRCard"
+						scrolling="no"
+					></iframe>
+				</Carousel.Item>
+				<Carousel.Item className="carousel-vr">
+					<iframe
+						src="https://kuula.co/share/collection/7F5Cf?logo=0&info=0&fs=1&vr=1&sd=1&initload=0&thumbs=1"
+						allow="xr-spatial-tracking; gyroscope; accelerometer"
+						allowFullScreen="true"
+						frameBorder={'0'}
+						className="VRCard"
+						scrolling="no"
+					></iframe>
+				</Carousel.Item>
+				<Carousel.Item className="carousel-vr">
+					<iframe
+						src="https://kuula.co/share/collection/7F5CG?logo=0&info=0&fs=1&vr=1&sd=1&initload=0&thumbs=1"
+						allow="xr-spatial-tracking; gyroscope; accelerometer"
+						allowFullScreen="true"
+						frameBorder={'0'}
+						className="VRCard"
+						scrolling="no"
+					></iframe>
+				</Carousel.Item>
+				<Carousel.Item className="carousel-vr">
+					<iframe
+						src="https://kuula.co/share/collection/7F5C0?logo=0&info=1&fs=1&vr=1&sd=1&thumbs=1"
 						allow="xr-spatial-tracking; gyroscope; accelerometer"
 						allowFullScreen="true"
 						frameBorder={'0'}
